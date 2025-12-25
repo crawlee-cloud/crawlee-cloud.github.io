@@ -4,7 +4,7 @@ Welcome to the Crawlee Cloud documentation.
 
 ## Overview
 
-Crawlee Cloud is a self-hosted platform that provides Apify-compatible APIs for running web scrapers. It enables you to execute Apify Actors on your own infrastructure while maintaining full SDK compatibility.
+Crawlee Cloud lets you run your Crawlee and Apify Actors on your own infrastructure. Use the same SDK you already know — just host it wherever you want!
 
 ## Guides
 
