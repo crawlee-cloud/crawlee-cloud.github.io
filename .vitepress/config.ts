@@ -4,6 +4,20 @@ export default defineConfig({
   title: 'Crawlee Cloud',
   description: 'Open-source self-hosted platform for Crawlee scrapers',
   cleanUrls: true,
+  head: [
+    [
+      'script',
+      { async: '', src: 'https://www.googletagmanager.com/gtag/js?id=G-FYMRJ2GG39' },
+    ],
+    [
+      'script',
+      {},
+      `window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-FYMRJ2GG39');`,
+    ],
+  ],
   srcDir: 'src',
   outDir: './dist',
   themeConfig: {
