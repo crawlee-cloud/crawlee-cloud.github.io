@@ -5,41 +5,69 @@
    ======================================== */
 :root {
   /* Brand gradient colors from logo */
-  --cc-orange-start: #FFB200;
-  --cc-orange-mid: #F98618;
-  --cc-red-end: #EB284B;
-  
-  /* UI Colors */
+  --cc-orange-start: #ffb200;
+  --cc-orange-mid: #f98618;
+  --cc-red-end: #eb284b;
+
+  /* Light mode UI Colors */
+  --cc-bg-dark: #ffffff;
+  --cc-bg-card: rgba(255, 255, 255, 0.9);
+  --cc-border: rgba(0, 0, 0, 0.1);
+  --cc-text-primary: #1a1a2e;
+  --cc-text-secondary: #4a5568;
+
+  /* VitePress overrides */
+  --vp-c-brand-1: #f98618;
+  --vp-c-brand-2: #eb284b;
+  --vp-c-brand-3: #ffb200;
+  --vp-c-brand-soft: rgba(249, 134, 24, 0.14);
+
+  --vp-home-hero-name-color: transparent;
+  --vp-home-hero-name-background: linear-gradient(
+    135deg,
+    #ffb200 0%,
+    #f98618 50%,
+    #eb284b 100%
+  );
+
+  --vp-home-hero-image-background-image: linear-gradient(
+    135deg,
+    rgba(255, 178, 0, 0.15) 0%,
+    rgba(235, 40, 75, 0.15) 100%
+  );
+  --vp-home-hero-image-filter: blur(68px);
+
+  /* Light mode VitePress colors */
+  --vp-c-bg: #ffffff;
+  --vp-c-bg-alt: #f6f8fa;
+  --vp-c-bg-elv: #ffffff;
+  --vp-c-bg-soft: #f6f8fa;
+
+  --vp-c-text-1: #1a1a2e;
+  --vp-c-text-2: #4a5568;
+  --vp-c-text-3: #718096;
+
+  --vp-c-divider: rgba(0, 0, 0, 0.08);
+  --vp-c-gutter: #e2e8f0;
+}
+
+/* Dark mode specific */
+.dark {
   --cc-bg-dark: #0d1117;
   --cc-bg-card: rgba(22, 27, 34, 0.8);
   --cc-border: rgba(255, 255, 255, 0.1);
   --cc-text-primary: #f3f4fa;
   --cc-text-secondary: #8b949e;
-  
-  /* VitePress overrides */
-  --vp-c-brand-1: #FFB200;
-  --vp-c-brand-2: #F98618;
-  --vp-c-brand-3: #EB284B;
-  --vp-c-brand-soft: rgba(255, 178, 0, 0.14);
-  
-  --vp-home-hero-name-color: transparent;
-  --vp-home-hero-name-background: linear-gradient(135deg, #FFB200 0%, #F98618 50%, #EB284B 100%);
-  
-  --vp-home-hero-image-background-image: linear-gradient(135deg, rgba(255, 178, 0, 0.2) 0%, rgba(235, 40, 75, 0.2) 100%);
-  --vp-home-hero-image-filter: blur(68px);
-}
 
-/* Dark mode specific */
-.dark {
   --vp-c-bg: #0d1117;
   --vp-c-bg-alt: #161b22;
   --vp-c-bg-elv: #1f2428;
   --vp-c-bg-soft: #161b22;
-  
+
   --vp-c-text-1: #f3f4fa;
   --vp-c-text-2: #8b949e;
   --vp-c-text-3: #6e7681;
-  
+
   --vp-c-divider: rgba(255, 255, 255, 0.08);
   --vp-c-gutter: #21262d;
 }
@@ -48,20 +76,37 @@
    Animations & Backgrounds
    ======================================== */
 @keyframes float {
-  0% { transform: translateY(0px) rotate(0deg); }
-  50% { transform: translateY(-15px) rotate(2deg); }
-  100% { transform: translateY(0px) rotate(0deg); }
+  0% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-15px) rotate(2deg);
+  }
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
 }
 
 @keyframes pulse-glow {
-  0%, 100% { box-shadow: 0 0 30px rgba(255, 178, 0, 0.2); }
-  50% { box-shadow: 0 0 60px rgba(235, 40, 75, 0.4); }
+  0%,
+  100% {
+    box-shadow: 0 0 30px rgba(255, 178, 0, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 60px rgba(235, 40, 75, 0.4);
+  }
 }
 
 @keyframes background-pan {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 /* Background animated mesh for Hero */
@@ -71,14 +116,17 @@
 }
 
 .VPHomeHero::before {
-  content: '';
+  content: "";
   position: absolute;
   width: 120%;
   height: 120%;
   top: -10%;
   left: -10%;
-  background: 
-    radial-gradient(circle at 15% 50%, rgba(255, 178, 0, 0.08), transparent 25%),
+  background: radial-gradient(
+      circle at 15% 50%,
+      rgba(255, 178, 0, 0.08),
+      transparent 25%
+    ),
     radial-gradient(circle at 85% 30%, rgba(235, 40, 75, 0.08), transparent 25%);
   z-index: 0;
   animation: pulse-glow 8s infinite ease-in-out alternate;
@@ -88,7 +136,7 @@
 /* Floating Logo effect */
 .VPHomeHero .image-src {
   animation: float 6s ease-in-out infinite;
-  filter: drop-shadow(0 20px 40px rgba(0,0,0,0.2));
+  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.2));
 }
 
 /* ========================================
@@ -107,7 +155,7 @@
 .VPHero .text {
   font-size: 2.5rem !important;
   font-weight: 600 !important;
-  background: linear-gradient(135deg, #f3f4fa 0%, #8b949e 100%);
+  background: linear-gradient(135deg, var(--cc-text-primary) 0%, var(--cc-text-secondary) 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -122,7 +170,11 @@
 
 /* Hero action buttons */
 .VPHero .actions .VPButton.brand {
-  background: linear-gradient(135deg, var(--cc-orange-start) 0%, var(--cc-red-end) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--cc-orange-start) 0%,
+    var(--cc-red-end) 100%
+  );
   border: none;
   box-shadow: 0 4px 24px rgba(255, 178, 0, 0.3);
   transition: all 0.3s ease;
@@ -134,7 +186,7 @@
 }
 
 .VPHero .actions .VPButton.alt {
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--vp-c-bg-soft);
   border: 1px solid var(--cc-border);
   backdrop-filter: blur(10px);
   transition: all 0.3s ease;
@@ -149,24 +201,26 @@
    Feature Cards - Glassmorphism
    ======================================== */
 .VPFeatures .VPFeature {
-  background: rgba(22, 27, 34, 0.6) !important;
-  border: 1px solid rgba(255, 255, 255, 0.05) !important;
+  background: var(--cc-bg-card) !important;
+  border: 1px solid var(--cc-border) !important;
   backdrop-filter: blur(12px);
-  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), 
-              box-shadow 0.3s ease, 
-              border-color 0.3s ease;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
 .VPFeatures .VPFeature:hover {
   transform: translateY(-10px) scale(1.02);
   border-color: rgba(255, 178, 0, 0.4) !important;
-  box-shadow: 
-    0 20px 40px -10px rgba(0, 0, 0, 0.5),
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.5),
     0 0 20px rgba(255, 178, 0, 0.1);
 }
 
 .VPFeatures .VPFeature .icon {
-  background: linear-gradient(135deg, rgba(255, 178, 0, 0.1), rgba(235, 40, 75, 0.1));
+  background: linear-gradient(
+    135deg,
+    rgba(255, 178, 0, 0.1),
+    rgba(235, 40, 75, 0.1)
+  );
   width: 48px;
   height: 48px;
   display: flex !important;
@@ -194,10 +248,10 @@
 .trusted-by-strip {
   text-align: center;
   padding: 40px 20px;
-  margin-bottom: 60px;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.02), transparent);
+  margin: 60px 0;
+  border-top: 1px solid var(--cc-border);
+  border-bottom: 1px solid var(--cc-border);
+  background: var(--vp-c-bg-soft);
 }
 
 .trusted-by-strip p {
@@ -206,7 +260,7 @@
   letter-spacing: 2px;
   color: #6e7681;
   text-transform: uppercase;
-  margin: 0;
+  margin: 0 ;
 }
 
 /* ========================================
@@ -219,7 +273,7 @@
   position: relative;
   overflow: hidden;
   max-width: 1152px;
-  margin: 100px auto;
+  margin: 0 auto 100px ;
   padding: 0 24px;
 }
 
@@ -229,11 +283,16 @@
   text-align: center;
   line-height: 1;
   margin-bottom: 60px;
-  background: linear-gradient(135deg, #f3f4fa 30%, #8b949e 100%);
+  background: linear-gradient(135deg, var(--cc-text-primary) 30%, var(--cc-text-secondary) 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   letter-spacing: -0.02em;
+  border: 0;
+}
+
+.VPImage{
+  width: 100%;
 }
 
 .benefits {
@@ -257,17 +316,22 @@
 .benefit:hover {
   transform: translateY(-5px);
   border-color: rgba(255, 178, 0, 0.3);
-  box-shadow: 0 20px 40px -10px rgba(0,0,0,0.5);
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.5);
 }
 
 .benefit::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 2px;
-  background: linear-gradient(90deg, transparent, var(--cc-orange-start), transparent);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--cc-orange-start),
+    transparent
+  );
   opacity: 0.5;
 }
 
@@ -276,7 +340,7 @@
   font-weight: 800;
   line-height: 1;
   margin-bottom: 16px;
-  background: linear-gradient(135deg, #FFB200 0%, #EB284B 100%);
+  background: linear-gradient(135deg, #ffb200 0%, #eb284b 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -293,9 +357,13 @@
    Navigation Bar
    ======================================== */
 .VPNav {
-  background: rgba(13, 17, 23, 0.8) !important;
+  background: var(--vp-c-bg) !important;
   backdrop-filter: blur(20px) saturate(180%);
   border-bottom: 1px solid var(--cc-border);
+}
+
+.dark .VPNav {
+  background: rgba(13, 17, 23, 0.8) !important;
 }
 
 .VPNavBar .VPNavBarTitle .title {
@@ -306,8 +374,12 @@
    Sidebar & Content
    ======================================== */
 .VPSidebar {
-  background: rgba(13, 17, 23, 0.95) !important;
+  background: var(--vp-c-bg) !important;
   backdrop-filter: blur(20px);
+}
+
+.dark .VPSidebar {
+  background: rgba(13, 17, 23, 0.95) !important;
 }
 
 .VPDoc {
@@ -317,7 +389,11 @@
 .vp-doc h1,
 .vp-doc h2,
 .vp-doc h3 {
-  background: linear-gradient(135deg, var(--cc-text-primary) 0%, var(--cc-text-secondary) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--cc-text-primary) 0%,
+    var(--cc-text-secondary) 100%
+  );
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -326,9 +402,13 @@
 /* ========================================
    Code Blocks
    ======================================== */
-.vp-doc div[class*='language-'] {
+.vp-doc div[class*="language-"] {
   border-radius: 12px;
   border: 1px solid var(--cc-border);
+  background: var(--vp-c-bg-soft) !important;
+}
+
+.dark .vp-doc div[class*="language-"] {
   background: rgba(22, 27, 34, 0.8) !important;
 }
 
@@ -347,19 +427,19 @@
   .VPHero .name {
     font-size: 2.5rem !important;
   }
-  
+
   .VPHero .text {
     font-size: 1.5rem !important;
   }
-  
+
   .VPHero .tagline {
     font-size: 1rem !important;
   }
-  
+
   .benefits {
     gap: 40px;
   }
-  
+
   .benefit .number {
     font-size: 2.5rem;
   }

@@ -8,7 +8,10 @@ export default defineConfig({
   outDir: './dist',
   themeConfig: {
     siteTitle: false,
-    logo: '/logo.svg',
+    logo: {
+      light: '/logo-light.svg',
+      dark: '/logo-dark.svg',
+    },
     nav: [
       { text: 'Home', link: '/' },
       { text: 'Docs', link: '/docs/' },

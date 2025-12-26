@@ -6,7 +6,8 @@ hero:
   text: 'Your Scrapers, Your Cloud'
   tagline: 'Run Crawlee and Apify Actors on your own infrastructure. Open source, self-hosted, and built with love for developers.'
   image:
-    src: /logo.svg
+    light: /logo-light.svg
+    dark: /logo-dark.svg
     alt: Crawlee Cloud
   actions:
     - theme: brand
