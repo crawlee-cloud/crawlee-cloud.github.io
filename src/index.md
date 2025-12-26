@@ -54,6 +54,12 @@ features:
   <p>BUILT BY DEVELOPERS, FOR DEVELOPERS ✨</p>
 </div>
 
+<div class="producthunt-badge">
+  <a href="https://www.producthunt.com/products/crawlee-cloud?utm_source=badge-featured&utm_medium=badge&utm_campaign=badge-crawlee-cloud" target="_blank">
+    <img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1054817&theme=light" alt="Crawlee Cloud - Self-hosted platform for running web scrapers | Product Hunt" width="250" height="54" />
+  </a>
+</div>
+
 <div class="custom-section">
   <h2>Why Crawlee Cloud?</h2>
   <div class="benefits">
@@ -82,5 +88,21 @@ features:
 
 .dark {
   --vp-home-hero-image-background-image: radial-gradient(circle, rgba(255, 178, 0, 0.12) 0%, rgba(235, 40, 75, 0.08) 50%, transparent 70%);
+}
+
+.producthunt-badge {
+  display: flex;
+  justify-content: center;
+  padding: 1.5rem 0;
+  margin-top: -1rem;
+}
+
+.producthunt-badge a {
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.producthunt-badge a:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
 }
 </style>
