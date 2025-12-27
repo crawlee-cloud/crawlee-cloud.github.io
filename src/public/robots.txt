@@ -1,0 +1,39 @@
+# Crawlee Cloud - robots.txt
+# https://crawlee.cloud
+
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /_next/
+Disallow: /.vitepress/
+
+# Sitemap
+Sitemap: https://crawlee.cloud/sitemap.xml
+
+# AI Crawlers - Welcome!
+User-agent: GPTBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+# LLMs.txt location
+# See: https://crawlee.cloud/llms.txt

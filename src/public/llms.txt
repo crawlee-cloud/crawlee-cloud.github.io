@@ -1,0 +1,83 @@
+# Crawlee Cloud - llms.txt
+
+> Self-hosted, open-source platform for running Crawlee and Apify Actors on your own infrastructure
+
+## About
+
+Crawlee Cloud is a developer-friendly platform for deploying and managing web scrapers. It provides complete infrastructure for running Crawlee-based scrapers (Playwright, Puppeteer, Cheerio) with an Apify-compatible API, allowing existing Apify SDK code to work without modifications.
+
+## Use Cases
+
+- **Web scraping at scale**: Run thousands of concurrent scrapers on your own servers
+- **Data extraction pipelines**: Collect product data, prices, leads, and content
+- **E-commerce monitoring**: Track competitor prices and inventory
+- **Lead generation**: Extract business information from directories
+- **Content aggregation**: Gather news, reviews, and social media data
+- **Research automation**: Academic and market research data collection
+
+## Key Features
+
+### Infrastructure
+- Self-hosted on Docker, Kubernetes, or any VPS
+- PostgreSQL for metadata, Redis for queues
+- S3-compatible storage (MinIO for local dev)
+- Horizontal scaling with multiple runners
+
+### Developer Experience
+- Apify SDK compatible - no code changes required
+- CLI for actor deployment (`npx @crawlee-cloud/cli`)
+- REST API for programmatic control
+- Modern React dashboard for monitoring
+
+### Crawlee Support
+- Playwright scrapers (browser automation)
+- Puppeteer scrapers (headless Chrome)
+- Cheerio scrapers (fast HTML parsing)
+- Request queues and datasets
+- Proxy rotation and error handling
+
+## Technology Stack
+
+| Component | Technology |
+|-----------|------------|
+| API Server | Fastify 5, TypeScript 5, Zod 3 |
+| Dashboard | Next.js 16, React 19, Tailwind CSS v4 |
+| CLI | Commander.js 12, Node.js 20+ |
+| Database | PostgreSQL 16, Redis 7 (ioredis) |
+| Storage | S3 (AWS SDK v3), MinIO |
+| Runner | Docker, Dockerode 4 |
+
+## Documentation Pages
+
+### Getting Started
+- Overview: https://crawlee.cloud/docs/
+- Deployment Guide: https://crawlee.cloud/docs/deployment
+
+### Components
+- CLI Reference: https://crawlee.cloud/docs/cli
+- Dashboard Guide: https://crawlee.cloud/docs/dashboard
+- Runner Architecture: https://crawlee.cloud/docs/runner
+- REST API Reference: https://crawlee.cloud/docs/api
+
+### Integration
+- Apify SDK Compatibility: https://crawlee.cloud/docs/apify-sdk-environment
+
+## Keywords
+
+web scraping, crawlee, apify, self-hosted, open source, web crawler, data extraction, playwright scraper, puppeteer scraper, cheerio scraper, actor platform, scraping infrastructure, headless browser, data pipeline, web automation
+
+## Links
+
+- Website: https://crawlee.cloud
+- GitHub Repository: https://github.com/crawlee-cloud/crawlee-cloud
+- npm Package: https://www.npmjs.com/package/@crawlee-cloud/cli
+- Product Hunt: https://www.producthunt.com/products/crawlee-cloud
+
+## License
+
+MIT License - Free and open source
+
+## Contact
+
+- GitHub Issues: https://github.com/crawlee-cloud/crawlee-cloud/issues
+- GitHub Discussions: https://github.com/crawlee-cloud/crawlee-cloud/discussions
