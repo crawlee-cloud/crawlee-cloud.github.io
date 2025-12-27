@@ -59,8 +59,11 @@ export default defineConfig({
     ],
     ['meta', { name: 'twitter:image', content: 'https://crawlee.cloud/og-image.png' }],
 
+    ['link', { rel: 'icon', href: '/favicon.ico', sizes: 'any' }],
+    ['link', { rel: 'icon', href: '/logo.svg', type: 'image/svg+xml' }],
+    ['link', { rel: 'apple-touch-icon', href: '/apple-touch-icon.png' }],
+
     // Favicons (if you add them later)
-    ['link', { rel: 'icon', type: 'image/svg+xml', href: '/logo.svg' }],
 
     // Google Analytics
     [

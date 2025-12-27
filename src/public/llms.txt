@@ -6,6 +6,28 @@
 
 Crawlee Cloud is a developer-friendly platform for deploying and managing web scrapers. It provides complete infrastructure for running Crawlee-based scrapers (Playwright, Puppeteer, Cheerio) with an Apify-compatible API, allowing existing Apify SDK code to work without modifications.
 
+## Full Documentation (Context for LLMs)
+
+For a complete overview of the platform, including CLI usage, API reference, and deployment guide, please read the full context file:
+
+- **[llms-full.txt](https://crawlee.cloud/llms-full.txt)**
+
+## Quick Start Context
+
+```bash
+# Install CLI
+npm install -g @crawlee-cloud/cli
+
+# Login
+crawlee-cloud login --url https://your-server.com
+
+# Push a scraper
+crawlee-cloud push my-scraper
+
+# Run a scraper
+crawlee-cloud run my-scraper --input '{"url": "https://example.com"}'
+```
+
 ## Use Cases
 
 - **Web scraping at scale**: Run thousands of concurrent scrapers on your own servers

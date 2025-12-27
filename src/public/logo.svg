@@ -1,4 +1,4 @@
-<svg width="450" height="100" viewBox="0 0 450 100" xmlns="http://www.w3.org/2000/svg">
+<svg width="60" height="60" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <linearGradient id="crawleeOrange" x1="0%" y1="0%" x2="100%" y2="0%">
       <stop offset="0.00095" stop-color="#FFB200"/>
@@ -21,12 +21,8 @@
   </defs>
 
   <!-- Cloud Icon - Added padding/margin by increasing translate X/Y -->
-  <g transform="translate(20, 20) scale(1.2)">
+  <g transform="translate(20, 20) scale(1)">
       <path d="M38.5,40 H13.5 C6.044,40, 0,33.956, 0,26.5 C0,19.336, 5.618,13.435, 12.712,13.023 C14.686,5.571, 21.492,0, 29.5,0 C38.56,0, 46.075,6.075, 47.784,14.502 C48.34,14.435, 48.913,14.4, 49.5,14.4 C57.508,14.4, 64,20.892, 64,28.9 C64,36.908, 57.508,43.4, 49.5,43.4 C48.65,43.4, 47.818,43.332, 47,43.2 V40 H38.5 Z" fill="url(#crawleeOrange)"/>
   </g>
-  
-  <!-- Text - Shifted right to accommodate larger margin -->
-  <text x="110" y="65" font-family="'Inter', -apple-system, sans-serif" font-size="44" font-weight="700" fill="#F3F4FA" letter-spacing="-1">
-    Crawlee <tspan fill="url(#crawleeOrange)">Cloud</tspan>
-  </text>
+
 </svg>

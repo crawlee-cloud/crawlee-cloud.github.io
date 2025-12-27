@@ -1,0 +1,465 @@
+# Documentation
+
+Welcome to the Crawlee Cloud documentation.
+
+## Overview
+
+Crawlee Cloud lets you run your Crawlee and Apify Actors on your own infrastructure. Use the same SDK you already know — just host it wherever you want!
+
+## Guides
+
+### Getting Started
+
+- [Deployment Guide](./deployment.md) — Install and configure your server
+- [SDK Compatibility](./apify-sdk-environment.md) — Using the Apify SDK with Crawlee Cloud
+
+### Reference
+
+- [API Reference](./api.md) — REST API endpoints
+- [CLI Guide](./cli.md) — Command-line interface
+- [Dashboard](./dashboard.md) — Web interface
+- [Runner](./runner.md) — Container execution engine
+
+## Quick Links
+
+- [Main README](https://github.com/crawlee-cloud/crawlee-cloud)
+- [Changelog](https://github.com/crawlee-cloud/crawlee-cloud/blob/main/CHANGELOG.md)
+- [GitHub Repository](https://github.com/crawlee-cloud/crawlee-cloud)
+
+## Support
+
+- [GitHub Issues](https://github.com/crawlee-cloud/crawlee-cloud/issues) — Bug reports and feature requests
+- [Discussions](https://github.com/crawlee-cloud/crawlee-cloud/discussions) — Questions and community support
+# CLI Guide
+
+The Crawlee Cloud CLI provides command-line tools for managing Actors.
+
+## Installation
+
+```bash
+npm install -g @crawlee-cloud/cli
+```
+
+Or use directly with npx:
+
+```bash
+npx @crawlee-cloud/cli <command>
+```
+
+After installation, you can use either `crawlee-cloud` or the short alias `crc`:
+
+```bash
+crawlee-cloud <command>
+# Or the short alias
+crc <command>
+```
+
+---
+
+## Commands
+
+### `login`
+
+Authenticate with your Crawlee Cloud server.
+
+```bash
+crawlee-cloud login --url https://your-server.com
+```
+
+You'll be prompted to enter your API token. Credentials are stored in `~/.crawlee-cloud/config.json`.
+
+---
+
+### `push`
+
+Build and push an Actor to the registry.
+
+```bash
+crawlee-cloud push [actor-name]
+```
+
+**Options:**
+
+| Flag            | Description               |
+| --------------- | ------------------------- |
+| `--version, -v` | Version tag for the build |
+| `--no-build`    | Skip local build step     |
+
+**Example:**
+
+```bash
+cd my-actor
+crawlee-cloud push my-scraper --version 1.0.0
+```
+
+---
+
+### `run`
+
+Execute an Actor on the server.
+
+```bash
+crawlee-cloud run <actor-name> [options]
+```
+
+**Options:**
+
+| Flag           | Description              |
+| -------------- | ------------------------ |
+| `--input, -i`  | JSON input for the Actor |
+| `--input-file` | Path to JSON input file  |
+| `--wait, -w`   | Wait for completion      |
+| `--timeout`    | Max wait time (seconds)  |
+
+**Examples:**
+
+```bash
+# Run with inline input
+crawlee-cloud run my-scraper --input '{"url": "https://example.com"}'
+
+# Run with input file
+crawlee-cloud run my-scraper --input-file ./input.json
+
+# Run and wait for completion
+crawlee-cloud run my-scraper --wait --timeout 300
+```
+
+---
+
+### `logs`
+
+Stream logs from a run.
+
+```bash
+crawlee-cloud logs <run-id> [options]
+```
+
+**Options:**
+
+| Flag           | Description                  |
+| -------------- | ---------------------------- |
+| `--follow, -f` | Continuously stream new logs |
+| `--tail, -n`   | Number of lines to show      |
+
+**Example:**
+
+```bash
+crawlee-cloud logs abc123 --follow
+```
+
+---
+
+### `call`
+
+Make direct API requests.
+
+```bash
+crawlee-cloud call <method> <path> [options]
+```
+
+**Options:**
+
+| Flag         | Description         |
+| ------------ | ------------------- |
+| `--data, -d` | Request body (JSON) |
+
+**Examples:**
+
+```bash
+# List datasets
+crawlee-cloud call GET /v2/datasets
+
+# Create a dataset
+crawlee-cloud call POST /v2/datasets --data '{"name": "my-data"}'
+```
+
+---
+
+## Configuration
+
+Configuration is stored in `~/.crawlee-cloud/config.json`:
+
+```json
+{
+  "server": "https://your-server.com",
+  "token": "your-api-token"
+}
+```
+
+### Environment Variables
+
+| Variable                | Description           |
+| ----------------------- | --------------------- |
+| `CRAWLEE_CLOUD_API_URL` | Override API base URL |
+| `CRAWLEE_CLOUD_TOKEN`   | Override API token    |
+# API Reference
+
+Crawlee Cloud provides a REST API that is fully compatible with the [Apify API v2](https://docs.apify.com/api/v2).
+
+## Base URL
+
+```
+https://your-server.com/v2
+```
+
+## Authentication
+
+All requests require a Bearer token in the `Authorization` header:
+
+```bash
+curl -H "Authorization: Bearer YOUR_TOKEN" \
+  https://your-server.com/v2/datasets
+```
+
+---
+
+## Datasets
+
+Store and retrieve scraped data.
+
+| Method   | Endpoint                  | Description           |
+| -------- | ------------------------- | --------------------- |
+| `GET`    | `/v2/datasets`            | List all datasets     |
+| `POST`   | `/v2/datasets`            | Create a new dataset  |
+| `GET`    | `/v2/datasets/{id}`       | Get dataset details   |
+| `DELETE` | `/v2/datasets/{id}`       | Delete a dataset      |
+| `POST`   | `/v2/datasets/{id}/items` | Push items to dataset |
+| `GET`    | `/v2/datasets/{id}/items` | Retrieve items        |
+
+### Push Items
+
+```bash
+curl -X POST \
+  -H "Authorization: Bearer $TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '[{"title": "Item 1"}, {"title": "Item 2"}]' \
+  https://your-server.com/v2/datasets/{id}/items
+```
+
+---
+
+## Key-Value Stores
+
+Store arbitrary data by key.
+
+| Method   | Endpoint                                  | Description        |
+| -------- | ----------------------------------------- | ------------------ |
+| `GET`    | `/v2/key-value-stores`                    | List all stores    |
+| `POST`   | `/v2/key-value-stores`                    | Create a new store |
+| `GET`    | `/v2/key-value-stores/{id}`               | Get store details  |
+| `PUT`    | `/v2/key-value-stores/{id}/records/{key}` | Set a record       |
+| `GET`    | `/v2/key-value-stores/{id}/records/{key}` | Get a record       |
+| `DELETE` | `/v2/key-value-stores/{id}/records/{key}` | Delete a record    |
+
+### Common Keys
+
+- `INPUT` — Actor input configuration
+- `OUTPUT` — Actor output/results
+
+---
+
+## Request Queues
+
+Manage URLs to crawl with automatic deduplication.
+
+| Method   | Endpoint                                            | Description             |
+| -------- | --------------------------------------------------- | ----------------------- |
+| `GET`    | `/v2/request-queues`                                | List all queues         |
+| `POST`   | `/v2/request-queues`                                | Create a new queue      |
+| `POST`   | `/v2/request-queues/{id}/requests`                  | Add requests to queue   |
+| `POST`   | `/v2/request-queues/{id}/head/lock`                 | Lock and fetch requests |
+| `DELETE` | `/v2/request-queues/{id}/requests/{requestId}/lock` | Release a lock          |
+| `PUT`    | `/v2/request-queues/{id}/requests/{requestId}`      | Update request status   |
+
+### Deduplication
+
+Requests are deduplicated by `uniqueKey`. Adding a request with an existing `uniqueKey` is a no-op.
+
+---
+
+## Actors
+
+Manage Actor definitions.
+
+| Method   | Endpoint             | Description       |
+| -------- | -------------------- | ----------------- |
+| `GET`    | `/v2/acts`           | List all Actors   |
+| `POST`   | `/v2/acts`           | Create an Actor   |
+| `GET`    | `/v2/acts/{id}`      | Get Actor details |
+| `PUT`    | `/v2/acts/{id}`      | Update an Actor   |
+| `DELETE` | `/v2/acts/{id}`      | Delete an Actor   |
+| `POST`   | `/v2/acts/{id}/runs` | Start a new run   |
+
+---
+
+## Runs
+
+Monitor Actor executions.
+
+| Method | Endpoint                    | Description           |
+| ------ | --------------------------- | --------------------- |
+| `GET`  | `/v2/actor-runs`            | List all runs         |
+| `GET`  | `/v2/actor-runs/{id}`       | Get run status        |
+| `POST` | `/v2/actor-runs/{id}/abort` | Abort a running Actor |
+| `GET`  | `/v2/actor-runs/{id}/log`   | Get run logs          |
+
+### Run Status Values
+
+| Status      | Description              |
+| ----------- | ------------------------ |
+| `READY`     | Queued, waiting to start |
+| `RUNNING`   | Currently executing      |
+| `SUCCEEDED` | Completed successfully   |
+| `FAILED`    | Execution failed         |
+| `ABORTED`   | Manually stopped         |
+| `TIMED-OUT` | Exceeded time limit      |
+
+---
+
+## Response Format
+
+All successful responses wrap data in a `data` field:
+
+```json
+{
+  "data": {
+    "id": "abc123",
+    "name": "my-dataset",
+    "itemCount": 42
+  }
+}
+```
+
+### Error Responses
+
+```json
+{
+  "error": {
+    "type": "RECORD_NOT_FOUND",
+    "message": "Dataset with ID 'xyz' was not found"
+  }
+}
+```
+
+| HTTP Code | Description                    |
+| --------- | ------------------------------ |
+| `400`     | Bad request / validation error |
+| `401`     | Authentication required        |
+| `403`     | Permission denied              |
+| `404`     | Resource not found             |
+| `500`     | Internal server error          |
+# Deployment Guide
+
+Deploy Crawlee Cloud to your own infrastructure.
+
+## Requirements
+
+- **Node.js** 18+
+- **Docker** & Docker Compose
+- **PostgreSQL** 14+
+- **Redis** 6+
+- **S3-compatible storage** (MinIO, AWS S3, etc.)
+
+---
+
+## Quick Start (Development)
+
+```bash
+# Clone repository
+git clone https://github.com/crawlee-cloud/crawlee-cloud.git
+cd crawlee-cloud
+
+# Start infrastructure
+docker compose -f docker-compose.dev.yml up -d
+
+# Install and build
+npm install
+npm run build
+
+# Run migrations
+npm run db:migrate
+
+# Start server
+npm run dev
+```
+
+---
+
+## Production Deployment
+
+### Using Docker Compose
+
+```bash
+docker compose up -d
+```
+
+This starts:
+
+- API Server (port 3000)
+- Runner
+- PostgreSQL
+- Redis
+- MinIO
+
+### Environment Variables
+
+Create a `.env` file with your production settings:
+
+| Variable        | Description                  | Required                |
+| --------------- | ---------------------------- | ----------------------- |
+| `PORT`          | API server port              | No (default: 3000)      |
+| `DATABASE_URL`  | PostgreSQL connection string | Yes                     |
+| `REDIS_URL`     | Redis connection string      | Yes                     |
+| `S3_ENDPOINT`   | S3-compatible endpoint URL   | Yes                     |
+| `S3_ACCESS_KEY` | S3 access key                | Yes                     |
+| `S3_SECRET_KEY` | S3 secret key                | Yes                     |
+| `S3_BUCKET`     | S3 bucket name               | Yes                     |
+| `S3_REGION`     | S3 region                    | No (default: us-east-1) |
+| `API_SECRET`    | JWT signing secret           | Yes                     |
+
+### Example `.env`
+
+```bash
+PORT=3000
+DATABASE_URL=postgresql://user:pass@db:5432/crawlee
+REDIS_URL=redis://redis:6379
+S3_ENDPOINT=https://s3.amazonaws.com
+S3_ACCESS_KEY=AKIAIOSFODNN7EXAMPLE
+S3_SECRET_KEY=wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
+S3_BUCKET=crawlee-cloud-storage
+API_SECRET=your-secure-random-string
+```
+
+---
+
+## Scaling
+
+| Component  | Scaling Strategy                    |
+| ---------- | ----------------------------------- |
+| API Server | Horizontal (stateless)              |
+| Runner     | Horizontal (multiple instances)     |
+| PostgreSQL | Managed service recommended         |
+| Redis      | Redis Cluster for high availability |
+| S3         | Managed service recommended         |
+
+---
+
+## Health Checks
+
+```bash
+curl http://localhost:3000/health
+```
+
+Returns:
+
+```json
+{ "status": "ok", "version": "0.1.0" }
+```
+
+---
+
+## Backups
+
+- **PostgreSQL**: Use `pg_dump` or managed backups
+- **S3**: Enable bucket versioning
+- **Redis**: Enable RDB/AOF persistence
