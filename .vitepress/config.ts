@@ -121,6 +121,7 @@ export default defineConfig({
     nav: [
       { text: 'Home', link: '/' },
       { text: 'Docs', link: '/docs/' },
+      { text: 'Roadmap', link: '/docs/roadmap' },
       { text: 'GitHub', link: 'https://github.com/crawlee-cloud/crawlee-cloud' },
     ],
 
@@ -140,6 +141,12 @@ export default defineConfig({
           { text: 'Runner', link: '/docs/runner' },
           { text: 'Deployment', link: '/docs/deployment' },
           { text: 'API Reference', link: '/docs/api' },
+        ],
+      },
+      {
+        text: 'Project',
+        items: [
+          { text: 'Roadmap', link: '/docs/roadmap' },
         ],
       },
     ],
