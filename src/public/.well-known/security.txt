@@ -1,0 +1,11 @@
+# Crawlee Cloud Security Policy
+# https://crawlee.cloud/.well-known/security.txt
+
+Contact: https://github.com/crawlee-cloud/crawlee-cloud/security/advisories/new
+Expires: 2027-01-01T00:00:00.000Z
+Preferred-Languages: en
+Canonical: https://crawlee.cloud/.well-known/security.txt
+Policy: https://github.com/crawlee-cloud/crawlee-cloud/security/policy
+
+# Crawlee Cloud is an open-source project
+# We appreciate responsible disclosure of security vulnerabilities
