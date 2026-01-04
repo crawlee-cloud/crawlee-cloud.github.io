@@ -26,6 +26,80 @@ crc <command>
 
 ## Commands
 
+### `init`
+
+Create a new Actor project from a template.
+
+```bash
+crawlee-cloud init [name] [options]
+```
+
+**Options:**
+
+| Flag             | Description                    |
+| ---------------- | ------------------------------ |
+| `--template, -t` | Template ID from Apify catalog |
+
+**Example:**
+
+```bash
+# Interactive mode - prompts for name and template
+crawlee-cloud init
+
+# Quick start with specific template
+crawlee-cloud init my-scraper --template ts-crawlee-cheerio
+```
+
+---
+
+### `dev`
+
+Run an Actor locally in development mode.
+
+```bash
+crawlee-cloud dev [options]
+```
+
+**Options:**
+
+| Flag          | Description                        |
+| ------------- | ---------------------------------- |
+| `--watch, -w` | Enable file watching & auto-reload |
+
+**Example:**
+
+```bash
+cd my-actor
+crawlee-cloud dev           # Run once
+crawlee-cloud dev --watch   # Run with hot reload
+```
+
+---
+
+### `status`
+
+Check the status of an Actor run.
+
+```bash
+crawlee-cloud status <run-id> [options]
+```
+
+**Options:**
+
+| Flag             | Description               |
+| ---------------- | ------------------------- |
+| `--watch, -w`    | Watch for status updates  |
+| `--interval, -i` | Watch interval in seconds |
+
+**Example:**
+
+```bash
+crawlee-cloud status abc123
+crawlee-cloud status abc123 --watch --interval 5
+```
+
+---
+
 ### `login`
 
 Authenticate with your Crawlee Cloud server.
