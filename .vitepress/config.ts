@@ -121,6 +121,14 @@ export default defineConfig({
     nav: [
       { text: 'Home', link: '/' },
       { text: 'Docs', link: '/docs/' },
+      {
+        text: 'Resources',
+        items: [
+          { text: 'Compare', link: '/compare/' },
+          { text: 'Run Scrapers', link: '/run/' },
+          { text: 'Solutions', link: '/solutions/' },
+        ],
+      },
       { text: 'Roadmap', link: '/docs/roadmap' },
       { text: 'GitHub', link: 'https://github.com/crawlee-cloud/crawlee-cloud' },
     ],

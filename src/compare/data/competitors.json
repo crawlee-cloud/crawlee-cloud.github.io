@@ -1,0 +1,132 @@
+{
+  "competitors": [
+    {
+      "slug": "apify-alternative",
+      "name": "Apify",
+      "type": "Managed Cloud Platform",
+      "headline": "Running Crawlee: Apify Cloud vs Self-Hosted",
+      "description": "Apify is a powerful cloud platform for running web scrapers. Crawlee Cloud gives you the same actor-based architecture on your own infrastructure.",
+      "crawleeAdvantage": "Open Source & Self-Hosted",
+      "theirPricing": "Pay-per-usage ($5/GB) or Monthly Subscription",
+      "ourPricing": "Cost of your VPS (approx. $5/mo)",
+      "keyDifferences": [
+        {
+          "feature": "Hosting",
+          "them": "Apify Cloud",
+          "us": "Your Infrastructure"
+        },
+        {
+          "feature": "Data Location",
+          "them": "Their servers",
+          "us": "Your servers"
+        },
+        {
+          "feature": "API Compatibility",
+          "them": "Apify SDK",
+          "us": "Apify SDK Compatible"
+        },
+        {
+          "feature": "Source Code",
+          "them": "Closed",
+          "us": "Open Source (MIT)"
+        }
+      ]
+    },
+    {
+      "slug": "zyte-alternative",
+      "name": "Zyte",
+      "type": "Managed Scraping Platform",
+      "headline": "Open Source Alternative to Zyte",
+      "description": "Zyte (formerly Scrapy Cloud) offers managed Scrapy hosting. Crawlee Cloud lets you run TypeScript scrapers on your own cloud.",
+      "crawleeAdvantage": "TypeScript-first, Self-Hosted",
+      "theirPricing": "Pay-per-request or Enterprise",
+      "ourPricing": "Your infrastructure costs only",
+      "keyDifferences": [
+        {
+          "feature": "Language",
+          "them": "Python/Scrapy",
+          "us": "TypeScript/Crawlee"
+        },
+        {
+          "feature": "Hosting",
+          "them": "Zyte Cloud",
+          "us": "Self-Hosted"
+        },
+        {
+          "feature": "Anti-Bot",
+          "them": "Smart Proxy Manager",
+          "us": "Bring Your Own Proxy"
+        },
+        {
+          "feature": "Source Code",
+          "them": "Closed",
+          "us": "Open Source"
+        }
+      ]
+    },
+    {
+      "slug": "scrapingbee-alternative",
+      "name": "ScrapingBee",
+      "type": "API-based Scraping Service",
+      "headline": "Self-Hosted Alternative to ScrapingBee",
+      "description": "ScrapingBee provides a headless browser API. Crawlee Cloud lets you run your own headless browsers at scale.",
+      "crawleeAdvantage": "No per-request fees",
+      "theirPricing": "Pay-per-request (from $0.00099/req)",
+      "ourPricing": "Flat infrastructure cost",
+      "keyDifferences": [
+        {
+          "feature": "Model",
+          "them": "API calls",
+          "us": "Your own scrapers"
+        },
+        {
+          "feature": "Flexibility",
+          "them": "Limited to API",
+          "us": "Full code control"
+        },
+        {
+          "feature": "Data",
+          "them": "Passes through their servers",
+          "us": "Never leaves your infra"
+        },
+        {
+          "feature": "Cost at Scale",
+          "them": "Increases with usage",
+          "us": "Fixed VPS cost"
+        }
+      ]
+    },
+    {
+      "slug": "bright-data-alternative",
+      "name": "Bright Data",
+      "type": "Proxy & Data Platform",
+      "headline": "Self-Hosted Scraping Infrastructure vs Bright Data",
+      "description": "Bright Data offers proxies and managed scraping. Crawlee Cloud provides the orchestration layer you control.",
+      "crawleeAdvantage": "Bring your own proxies",
+      "theirPricing": "Premium proxy pricing",
+      "ourPricing": "Use any proxy provider",
+      "keyDifferences": [
+        {
+          "feature": "Proxies",
+          "them": "Bundled (lock-in)",
+          "us": "Any provider"
+        },
+        {
+          "feature": "Platform",
+          "them": "Managed",
+          "us": "Self-Hosted"
+        },
+        {
+          "feature": "Target",
+          "them": "Enterprise",
+          "us": "Developers"
+        },
+        {
+          "feature": "Flexibility",
+          "them": "Their stack",
+          "us": "Your stack"
+        }
+      ]
+    }
+  ]
+}

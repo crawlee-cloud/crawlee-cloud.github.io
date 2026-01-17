@@ -1,0 +1,49 @@
+{
+  "technologies": [
+    {
+      "slug": "playwright-scrapers",
+      "name": "Playwright",
+      "headline": "Deploy Playwright Scrapers to the Cloud",
+      "description": "Run your Playwright scrapers on Crawlee Cloud with full browser automation support.",
+      "category": "Browser Automation",
+      "language": "TypeScript/JavaScript",
+      "features": [
+        "Cross-browser support (Chromium, Firefox, WebKit)",
+        "Auto-waiting and smart selectors",
+        "Network interception",
+        "Mobile emulation"
+      ],
+      "exampleCode": "import { PlaywrightCrawler } from 'crawlee';\n\nconst crawler = new PlaywrightCrawler({\n  async requestHandler({ page, request }) {\n    const title = await page.title();\n    console.log(`${request.url}: ${title}`);\n  },\n});\n\nawait crawler.run(['https://example.com']);"
+    },
+    {
+      "slug": "puppeteer-scrapers",
+      "name": "Puppeteer",
+      "headline": "The Best Way to Host Puppeteer Scrapers",
+      "description": "Deploy Puppeteer scrapers with headless Chrome on your own infrastructure.",
+      "category": "Browser Automation",
+      "language": "JavaScript",
+      "features": [
+        "Native Chrome DevTools Protocol",
+        "Fastest Chromium automation",
+        "Screenshot and PDF generation",
+        "Request interception"
+      ],
+      "exampleCode": "import { PuppeteerCrawler } from 'crawlee';\n\nconst crawler = new PuppeteerCrawler({\n  async requestHandler({ page, request }) {\n    await page.screenshot({ path: 'screenshot.png' });\n  },\n});\n\nawait crawler.run(['https://example.com']);"
+    },
+    {
+      "slug": "cheerio-scrapers",
+      "name": "Cheerio",
+      "headline": "High-Performance Cheerio Scraper Hosting",
+      "description": "Run lightweight, fast HTML scrapers without browser overhead.",
+      "category": "HTML Parsing",
+      "language": "JavaScript",
+      "features": [
+        "10x faster than browser-based scraping",
+        "jQuery-like syntax",
+        "Low memory footprint",
+        "Perfect for static pages"
+      ],
+      "exampleCode": "import { CheerioCrawler } from 'crawlee';\n\nconst crawler = new CheerioCrawler({\n  async requestHandler({ $, request }) {\n    const title = $('title').text();\n    console.log(`${request.url}: ${title}`);\n  },\n});\n\nawait crawler.run(['https://example.com']);"
+    }
+  ]
+}

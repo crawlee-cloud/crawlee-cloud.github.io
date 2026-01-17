@@ -1,0 +1,76 @@
+{
+  "usecases": [
+    {
+      "slug": "ai-training-data",
+      "name": "AI Training Data",
+      "headline": "Scalable Scraping for AI Training Data",
+      "description": "Collect training data for machine learning models at scale.",
+      "icon": "brain",
+      "benefits": [
+        "Collect millions of data points",
+        "Structure data for ML pipelines",
+        "Control data quality and freshness",
+        "Keep training data on your servers"
+      ],
+      "industries": [
+        "AI/ML",
+        "Research",
+        "SaaS"
+      ]
+    },
+    {
+      "slug": "ecommerce-price-monitoring",
+      "name": "E-commerce Price Monitoring",
+      "headline": "Self-Hosted Price Monitoring Engine",
+      "description": "Track competitor prices and inventory across thousands of products.",
+      "icon": "shopping-cart",
+      "benefits": [
+        "Monitor competitor pricing in real-time",
+        "Track inventory and stock levels",
+        "Historical price trend analysis",
+        "Automated pricing alerts"
+      ],
+      "industries": [
+        "E-commerce",
+        "Retail",
+        "Marketplaces"
+      ]
+    },
+    {
+      "slug": "lead-generation",
+      "name": "Lead Generation",
+      "headline": "Automated Lead Generation Scraping",
+      "description": "Build targeted prospect lists from public business directories and websites.",
+      "icon": "users",
+      "benefits": [
+        "Extract contact information at scale",
+        "Filter by industry, location, size",
+        "Enrich CRM data automatically",
+        "Comply with data regulations"
+      ],
+      "industries": [
+        "Sales",
+        "Marketing",
+        "Recruiting"
+      ]
+    },
+    {
+      "slug": "real-estate-aggregation",
+      "name": "Real Estate Aggregation",
+      "headline": "Real Estate Data Aggregation Pipeline",
+      "description": "Aggregate property listings from multiple sources for analysis.",
+      "icon": "home",
+      "benefits": [
+        "Combine listings from multiple portals",
+        "Track price changes over time",
+        "Geographic market analysis",
+        "Investment opportunity detection"
+      ],
+      "industries": [
+        "Real Estate",
+        "PropTech",
+        "Investment"
+      ]
+    }
+  ]
+}
