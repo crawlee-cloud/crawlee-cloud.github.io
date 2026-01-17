@@ -81,6 +81,6 @@ Version control your scrapers alongside your models.
 
 Deploy your data pipeline in minutes.
 
-[Get Started →](/docs/) · [View Examples](https://github.com/crawlee-cloud/examples)
+[Get Started →](/docs/)
 
 </div>
