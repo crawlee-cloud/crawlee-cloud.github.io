@@ -42,8 +42,8 @@ docker compose up -d
 
 This brings up the full stack — API, Runner, Dashboard, PostgreSQL, Redis, and MinIO. Once running:
 
-- **Dashboard:** http://localhost:3001 — monitor runs, view datasets, manage Actors
-- **API:** http://localhost:3000
+- **Dashboard:** `http://localhost:3001` — monitor runs, view datasets, manage Actors
+- **API:** `http://localhost:3000`
 
 ---
 
@@ -89,7 +89,7 @@ This starts:
 
 Database migrations run automatically on startup. If you are running outside Docker, you must run `npm run db:migrate` manually before starting the server.
 
-The **Dashboard** at http://localhost:3001 provides a web UI for monitoring Actor runs, viewing datasets and key-value stores, and managing Actors.
+The **Dashboard** at `http://localhost:3001` provides a web UI for monitoring Actor runs, viewing datasets and key-value stores, and managing Actors.
 
 ### Environment Variables
 

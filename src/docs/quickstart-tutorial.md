@@ -41,7 +41,7 @@ curl http://localhost:3000/health
 # {"status":"ok","version":"1.0.0"}
 ```
 
-The **Dashboard** is available at [http://localhost:3001](http://localhost:3001).
+The **Dashboard** is available at `http://localhost:3001`.
 
 ---
 
@@ -279,7 +279,7 @@ Response:
 
 ### Via the Dashboard
 
-Open [http://localhost:3001](http://localhost:3001) and navigate to:
+Open `http://localhost:3001` in your browser and navigate to:
 
 - **Runs** — see execution history and statuses
 - **Datasets** — browse and download scraped data

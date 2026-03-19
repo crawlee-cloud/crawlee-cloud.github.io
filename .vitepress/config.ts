@@ -1,77 +1,101 @@
-import { defineConfig } from 'vitepress';
+import { defineConfig } from "vitepress";
 
 export default defineConfig({
-  title: 'Crawlee Cloud',
+  title: "Crawlee Cloud",
   description:
-    'Self-hosted, open-source platform for running Crawlee and Apify Actors on your own infrastructure. Deploy web scrapers with Playwright, Puppeteer, or Cheerio.',
+    "Self-hosted, open-source platform for running Crawlee and Apify Actors on your own infrastructure. Deploy web scrapers with Playwright, Puppeteer, or Cheerio.",
   cleanUrls: true,
-  lang: 'en-US',
+  lang: "en-US",
   lastUpdated: true,
 
   // Sitemap generation
   sitemap: {
-    hostname: 'https://crawlee.cloud',
+    hostname: "https://crawlee.cloud",
     lastmodDateOnly: false,
   },
 
   head: [
     // Primary Meta Tags
-    ['meta', { name: 'viewport', content: 'width=device-width, initial-scale=1.0' }],
     [
-      'meta',
+      "meta",
+      { name: "viewport", content: "width=device-width, initial-scale=1.0" },
+    ],
+    [
+      "meta",
       {
-        name: 'keywords',
+        name: "keywords",
         content:
-          'crawlee, apify, web scraping, self-hosted, open source, playwright, puppeteer, cheerio, web crawler, data extraction, scraping platform, actor platform',
+          "crawlee, apify, web scraping, self-hosted, open source, playwright, puppeteer, cheerio, web crawler, data extraction, scraping platform, actor platform",
       },
     ],
-    ['meta', { name: 'author', content: 'Crawlee Cloud' }],
-    ['meta', { name: 'robots', content: 'index, follow' }],
-    ['link', { rel: 'canonical', href: 'https://crawlee.cloud' }],
+    ["meta", { name: "author", content: "Crawlee Cloud" }],
+    ["meta", { name: "robots", content: "index, follow" }],
+    ["link", { rel: "canonical", href: "https://crawlee.cloud" }],
 
     // Open Graph / Facebook
-    ['meta', { property: 'og:type', content: 'website' }],
-    ['meta', { property: 'og:url', content: 'https://crawlee.cloud' }],
-    ['meta', { property: 'og:title', content: 'Crawlee Cloud - Your Scrapers, Your Cloud' }],
+    ["meta", { property: "og:type", content: "website" }],
+    ["meta", { property: "og:url", content: "https://crawlee.cloud" }],
     [
-      'meta',
+      "meta",
       {
-        property: 'og:description',
-        content:
-          'Self-hosted, open-source platform for running Crawlee and Apify Actors on your own infrastructure.',
+        property: "og:title",
+        content: "Crawlee Cloud - Your Scrapers, Your Cloud",
       },
     ],
-    ['meta', { property: 'og:image', content: 'https://crawlee.cloud/og-image.png' }],
-    ['meta', { property: 'og:site_name', content: 'Crawlee Cloud' }],
-    ['meta', { property: 'og:locale', content: 'en_US' }],
+    [
+      "meta",
+      {
+        property: "og:description",
+        content:
+          "Self-hosted, open-source platform for running Crawlee and Apify Actors on your own infrastructure.",
+      },
+    ],
+    [
+      "meta",
+      { property: "og:image", content: "https://crawlee.cloud/og-image.png" },
+    ],
+    ["meta", { property: "og:site_name", content: "Crawlee Cloud" }],
+    ["meta", { property: "og:locale", content: "en_US" }],
 
     // Twitter / X
-    ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
-    ['meta', { name: 'twitter:url', content: 'https://crawlee.cloud' }],
-    ['meta', { name: 'twitter:title', content: 'Crawlee Cloud - Your Scrapers, Your Cloud' }],
+    ["meta", { name: "twitter:card", content: "summary_large_image" }],
+    ["meta", { name: "twitter:url", content: "https://crawlee.cloud" }],
     [
-      'meta',
+      "meta",
       {
-        name: 'twitter:description',
-        content:
-          'Self-hosted, open-source platform for running Crawlee and Apify Actors on your own infrastructure.',
+        name: "twitter:title",
+        content: "Crawlee Cloud - Your Scrapers, Your Cloud",
       },
     ],
-    ['meta', { name: 'twitter:image', content: 'https://crawlee.cloud/og-image.png' }],
+    [
+      "meta",
+      {
+        name: "twitter:description",
+        content:
+          "Self-hosted, open-source platform for running Crawlee and Apify Actors on your own infrastructure.",
+      },
+    ],
+    [
+      "meta",
+      { name: "twitter:image", content: "https://crawlee.cloud/og-image.png" },
+    ],
 
-    ['link', { rel: 'icon', href: '/favicon.ico', sizes: 'any' }],
-    ['link', { rel: 'icon', href: '/logo.svg', type: 'image/svg+xml' }],
-    ['link', { rel: 'apple-touch-icon', href: '/apple-touch-icon.png' }],
+    ["link", { rel: "icon", href: "/favicon.ico", sizes: "any" }],
+    ["link", { rel: "icon", href: "/logo.svg", type: "image/svg+xml" }],
+    ["link", { rel: "apple-touch-icon", href: "/apple-touch-icon.png" }],
 
     // Favicons (if you add them later)
 
     // Google Analytics
     [
-      'script',
-      { async: '', src: 'https://www.googletagmanager.com/gtag/js?id=G-FYMRJ2GG39' },
+      "script",
+      {
+        async: "",
+        src: "https://www.googletagmanager.com/gtag/js?id=G-FYMRJ2GG39",
+      },
     ],
     [
-      'script',
+      "script",
       {},
       `window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
@@ -81,94 +105,103 @@ export default defineConfig({
 
     // JSON-LD Structured Data
     [
-      'script',
-      { type: 'application/ld+json' },
+      "script",
+      { type: "application/ld+json" },
       JSON.stringify({
-        '@context': 'https://schema.org',
-        '@type': 'SoftwareApplication',
-        name: 'Crawlee Cloud',
-        applicationCategory: 'DeveloperApplication',
-        operatingSystem: 'Linux, macOS, Windows',
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        name: "Crawlee Cloud",
+        applicationCategory: "DeveloperApplication",
+        operatingSystem: "Linux, macOS, Windows",
         description:
-          'Self-hosted, open-source platform for running Crawlee and Apify Actors on your own infrastructure.',
-        url: 'https://crawlee.cloud',
+          "Self-hosted, open-source platform for running Crawlee and Apify Actors on your own infrastructure.",
+        url: "https://crawlee.cloud",
         offers: {
-          '@type': 'Offer',
-          price: '0',
-          priceCurrency: 'USD',
+          "@type": "Offer",
+          price: "0",
+          priceCurrency: "USD",
         },
         author: {
-          '@type': 'Organization',
-          name: 'Crawlee Cloud',
-          url: 'https://crawlee.cloud',
+          "@type": "Organization",
+          name: "Crawlee Cloud",
+          url: "https://crawlee.cloud",
         },
-        license: 'https://opensource.org/licenses/MIT',
-        codeRepository: 'https://github.com/crawlee-cloud/crawlee-cloud',
-        programmingLanguage: ['TypeScript', 'JavaScript'],
+        license: "https://opensource.org/licenses/MIT",
+        codeRepository: "https://github.com/crawlee-cloud/crawlee-cloud",
+        programmingLanguage: ["TypeScript", "JavaScript"],
         keywords:
-          'web scraping, crawlee, apify, self-hosted, open source, playwright, puppeteer, cheerio',
+          "web scraping, crawlee, apify, self-hosted, open source, playwright, puppeteer, cheerio",
       }),
     ],
   ],
-  srcDir: 'src',
-  outDir: './dist',
+  srcDir: "src",
+  outDir: "./dist",
   themeConfig: {
     siteTitle: false,
     logo: {
-      light: '/logo-light.svg',
-      dark: '/logo-dark.svg',
+      light: "/logo-light.svg",
+      dark: "/logo-dark.svg",
     },
     nav: [
-      { text: 'Home', link: '/' },
-      { text: 'Docs', link: '/docs/' },
+      { text: "Home", link: "/" },
+      { text: "Docs", link: "/docs/" },
       {
-        text: 'Resources',
+        text: "Resources",
         items: [
-          { text: 'Compare', link: '/compare/' },
-          { text: 'Run Scrapers', link: '/run/' },
-          { text: 'Solutions', link: '/solutions/' },
+          { text: "Compare", link: "/compare/" },
+          { text: "Run Scrapers", link: "/run/" },
+          { text: "Solutions", link: "/solutions/" },
         ],
       },
-      { text: 'Roadmap', link: '/docs/roadmap' },
-      { text: 'GitHub', link: 'https://github.com/crawlee-cloud/crawlee-cloud' },
+      { text: "Roadmap", link: "/docs/roadmap" },
+      {
+        text: "GitHub",
+        link: "https://github.com/crawlee-cloud/crawlee-cloud",
+      },
     ],
 
     sidebar: [
       {
-        text: 'Getting Started',
+        text: "Getting Started",
         items: [
-          { text: 'Overview', link: '/docs/' },
-          { text: 'Quick Start Tutorial', link: '/docs/quickstart-tutorial' },
-          { text: 'Apify SDK Environment', link: '/docs/apify-sdk-environment' },
+          { text: "Overview", link: "/docs/" },
+          { text: "Quick Start Tutorial", link: "/docs/quickstart-tutorial" },
+          {
+            text: "Apify SDK Environment",
+            link: "/docs/apify-sdk-environment",
+          },
         ],
       },
       {
-        text: 'Components',
+        text: "Components",
         items: [
-          { text: 'CLI', link: '/docs/cli' },
-          { text: 'Dashboard', link: '/docs/dashboard' },
-          { text: 'Runner', link: '/docs/runner' },
-          { text: 'Deployment', link: '/docs/deployment' },
-          { text: 'API Reference', link: '/docs/api' },
+          { text: "CLI", link: "/docs/cli" },
+          { text: "Dashboard", link: "/docs/dashboard" },
+          { text: "Runner", link: "/docs/runner" },
+          { text: "Deployment", link: "/docs/deployment" },
+          { text: "API Reference", link: "/docs/api" },
         ],
       },
       {
-        text: 'Project',
-        items: [
-          { text: 'Roadmap', link: '/docs/roadmap' },
-        ],
+        text: "Project",
+        items: [{ text: "Roadmap", link: "/docs/roadmap" }],
       },
     ],
 
-    socialLinks: [{ icon: 'github', link: 'https://github.com/crawlee-cloud/crawlee-cloud' }],
+    socialLinks: [
+      {
+        icon: "github",
+        link: "https://github.com/crawlee-cloud/crawlee-cloud",
+      },
+    ],
 
     footer: {
-      message: 'Released under the MIT License.',
-      copyright: 'Copyright © 2025 Crawlee Cloud',
+      message: "Released under the MIT License.",
+      copyright: "Copyright © 2025 Crawlee Cloud",
     },
 
     search: {
-      provider: 'local',
+      provider: "local",
     },
   },
 });
