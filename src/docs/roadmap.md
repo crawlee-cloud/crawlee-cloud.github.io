@@ -2,22 +2,16 @@
 
 A CLI-first platform for running large-scale scrapers on your own infrastructure.
 
-## Current Version: v0.4.x ✅
+## Current Version: v0.6.x
 
-- Apify-compatible REST API with input validation (Zod schemas)
-- Docker-based Actor execution
-- CLI for development and deployment (`crc init`, `crc dev`, `crc push`, `crc run`, `crc call`, `crc logs`, `crc status`)
-- Datasets, Key-Value Stores, Request Queues
-- Basic web dashboard
-- Security config validation at startup
-- User-scoped resources (IDOR protection)
-- Environment variable support for Actor runs
-- Cron scheduling, retry policies, run timeouts
-- Webhooks with delivery tracking and retry logic
-- Resource limits (memory caps per container)
-- Prometheus metrics and health checks
-- Graceful shutdown (SIGTERM/SIGINT handling)
-- Database backup and restore utilities
+- Everything from v0.5.0 plus:
+- DigitalOcean App Platform deployment (API + Dashboard)
+- Single-command DO setup script (PG, Redis, App Platform, Runner Droplet)
+- One-click deploy templates for Railway, Render, DigitalOcean
+- Platform-agnostic runner auto-scaler (DO provider, extensible)
+- Runner heartbeat system (CPU, memory, disk metrics via Redis)
+- Dashboard path-routing for reverse proxy deployments
+- Scraper deployment tooling (deploy any scraper from a monorepo)
 
 ---
 
@@ -59,17 +53,41 @@ A CLI-first platform for running large-scale scrapers on your own infrastructure
 | Graceful shutdown | ✅ Shipped — SIGTERM/SIGINT handlers in API and runner |
 | Backup & restore | ✅ Shipped — backup:create, backup:restore, backup:list scripts |
 
-## v0.5.0 - Polish & Scaling
+## v0.5.0 ✅ - Security & Polish
 
-**Priority:** Improve developer experience and prepare for multi-worker deployments.
+| Feature | Status |
+|---------|--------|
+| Auth middleware | ✅ Shipped — JWT + API key authentication |
+| User-scoped resources | ✅ Shipped — IDOR protection |
+| Input validation | ✅ Shipped — Zod schemas on all endpoints |
+| SSRF protection | ✅ Shipped — webhook URL validation |
+| Security config validation | ✅ Shipped — blocks insecure defaults in production |
+
+## v0.6.0 ✅ - Cloud Deployment & Auto-Scaling
+
+| Feature | Status |
+|---------|--------|
+| DigitalOcean deployment | ✅ Shipped — App Platform (API + Dashboard) + Runner Droplet |
+| Setup automation | ✅ Shipped — `bash deploy/digitalocean/setup.sh` provisions everything |
+| One-click deploy | ✅ Shipped — Railway, Render, DigitalOcean buttons |
+| Runner auto-scaler | ✅ Shipped — queue-based, platform-agnostic (DO provider) |
+| Runner heartbeat | ✅ Shipped — CPU/memory/disk metrics via Redis |
+| Dashboard path routing | ✅ Shipped — works behind path-stripping reverse proxies |
+| SSL for managed DBs | ✅ Shipped — auto-enables for production Postgres |
+| Auto-migrations | ✅ Shipped — `run_command` runs migrations before API starts |
+
+## v0.7.0 - Scale & Operate
+
+**Priority:** Production operations for 100+ scrapers.
 
 | Feature | Description |
 |---------|-------------|
-| Actor versioning | Complete the versioning workflow (table exists, workflow in progress) |
+| GHCR image registry | Push actor images to GitHub Container Registry for fast runner pull |
+| DO Spaces integration | Managed S3 storage instead of self-hosted MinIO |
+| Scheduling UI | Create and manage cron schedules from the dashboard |
+| Actor versioning | Complete the versioning workflow (table exists, needs UI) |
 | API key scopes | Read-only vs full access keys |
-| Improved dashboard | Better UX for UI users |
-| Multi-worker runner scaling | Scale horizontally for parallel execution |
-| Docs improvements | More guides and examples |
+| Hetzner scaler provider | Scale runners on Hetzner Cloud (cheaper than DO) |
 
 ---
 
