@@ -135,9 +135,10 @@ export default defineConfig({
 
     sidebar: [
       {
-        text: 'Introduction',
+        text: 'Getting Started',
         items: [
           { text: 'Overview', link: '/docs/' },
+          { text: 'Quick Start Tutorial', link: '/docs/quickstart-tutorial' },
           { text: 'Apify SDK Environment', link: '/docs/apify-sdk-environment' },
         ],
       },

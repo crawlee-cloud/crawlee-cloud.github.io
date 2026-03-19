@@ -105,10 +105,29 @@ crawlee-cloud status abc123 --watch --interval 5
 Authenticate with your Crawlee Cloud server.
 
 ```bash
-crawlee-cloud login --url https://your-server.com
+crawlee-cloud login [options]
 ```
 
-You'll be prompted to enter your API token. Credentials are stored in `~/.crawlee-cloud/config.json`.
+**Options:**
+
+| Flag           | Description     |
+| -------------- | --------------- |
+| `--url, -u`    | API base URL    |
+| `--token, -t`  | API token       |
+
+Without flags, you'll be prompted interactively. The token is validated against the server before saving.
+
+**Examples:**
+
+```bash
+# Interactive login (prompts for URL and token)
+crawlee-cloud login
+
+# Non-interactive
+crawlee-cloud login --url https://your-server.com --token your-api-token
+```
+
+Credentials are stored in `~/.crawlee-cloud/config.json`.
 
 ---
 
@@ -124,47 +143,48 @@ crawlee-cloud push [actor-name]
 
 | Flag            | Description               |
 | --------------- | ------------------------- |
-| `--version, -v` | Version tag for the build |
-| `--no-build`    | Skip local build step     |
+| `--tag, -t`  | Docker image tag for the build |
+| `--no-build` | Skip local build step          |
 
 **Example:**
 
 ```bash
 cd my-actor
-crawlee-cloud push my-scraper --version 1.0.0
+crawlee-cloud push my-scraper --tag 1.0.0
 ```
 
 ---
 
 ### `run`
 
-Execute an Actor on the server.
+Run an Actor locally with local file storage.
 
 ```bash
-crawlee-cloud run <actor-name> [options]
+crawlee-cloud run [options]
 ```
 
 **Options:**
 
-| Flag           | Description              |
-| -------------- | ------------------------ |
-| `--input, -i`  | JSON input for the Actor |
-| `--input-file` | Path to JSON input file  |
-| `--wait, -w`   | Wait for completion      |
-| `--timeout`    | Max wait time (seconds)  |
+| Flag          | Description                         |
+| ------------- | ----------------------------------- |
+| `--input, -i` | JSON input or path to JSON file    |
+| `--no-purge`  | Do not purge storage before run     |
 
 **Examples:**
 
 ```bash
-# Run with inline input
-crawlee-cloud run my-scraper --input '{"url": "https://example.com"}'
+# Run in current directory
+cd my-actor
+crawlee-cloud run
 
-# Run with input file
-crawlee-cloud run my-scraper --input-file ./input.json
+# Run with input
+crawlee-cloud run --input '{"url": "https://example.com"}'
 
-# Run and wait for completion
-crawlee-cloud run my-scraper --wait --timeout 300
+# Keep previous storage data
+crawlee-cloud run --no-purge
 ```
+
+Local storage is created in `./storage/` with datasets, key-value stores, and request queues.
 
 ---
 
@@ -193,27 +213,69 @@ crawlee-cloud logs abc123 --follow
 
 ### `call`
 
-Make direct API requests.
+Call a remote Actor on the platform and optionally wait for results.
 
 ```bash
-crawlee-cloud call <method> <path> [options]
+crawlee-cloud call <actor> [options]
 ```
 
 **Options:**
 
-| Flag         | Description         |
-| ------------ | ------------------- |
-| `--data, -d` | Request body (JSON) |
+| Flag              | Description                                    |
+| ----------------- | ---------------------------------------------- |
+| `--input, -i`     | Input JSON or path to JSON file                |
+| `--env, -e`       | Environment variable KEY=VALUE (repeatable)    |
+| `--wait, -w`      | Wait for run to finish                         |
+| `--timeout, -t`   | Timeout in seconds (default: 3600)             |
+| `--memory, -m`    | Memory in MB (default: 1024)                   |
 
 **Examples:**
 
 ```bash
-# List datasets
-crawlee-cloud call GET /v2/datasets
+# Call an Actor
+crawlee-cloud call my-scraper --input '{"url": "https://example.com"}'
 
-# Create a dataset
-crawlee-cloud call POST /v2/datasets --data '{"name": "my-data"}'
+# Call and wait for results
+crawlee-cloud call my-scraper --wait --input '{"url": "https://example.com"}'
+
+# Call with environment variables (use -e multiple times)
+crc call my-actor -e KEY1=val1 -e KEY2=val2
 ```
+
+> **Tip:** The `-e` flag can be repeated to pass multiple environment variables in a single call.
+
+---
+
+## Getting Your API Token
+
+You need an API token to authenticate with Crawlee Cloud. There are two ways to get one:
+
+### Via the Dashboard
+
+1. Login to the dashboard at `http://localhost:3001`
+2. Go to **Settings → API Keys**
+3. Create a new API key
+
+### Via the API
+
+First, obtain a JWT token by logging in:
+
+```bash
+curl -X POST http://localhost:3000/v2/auth/login \
+  -H "Content-Type: application/json" \
+  -d '{"email":"admin@crawlee.cloud","password":"your-password"}'
+```
+
+Then create an API key using the JWT token:
+
+```bash
+curl -X POST http://localhost:3000/v2/auth/api-keys \
+  -H "Authorization: Bearer <token>" \
+  -H "Content-Type: application/json" \
+  -d '{"name":"my-key"}'
+```
+
+Use the resulting API key as your token when running `crawlee-cloud login`.
 
 ---
 
@@ -223,7 +285,7 @@ Configuration is stored in `~/.crawlee-cloud/config.json`:
 
 ```json
 {
-  "server": "https://your-server.com",
+  "apiBaseUrl": "https://your-server.com",
   "token": "your-api-token"
 }
 ```

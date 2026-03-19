@@ -10,6 +10,7 @@ Crawlee Cloud lets you run your Crawlee and Apify Actors on your own infrastruct
 
 ### Getting Started
 
+- [Quick Start Tutorial](./quickstart-tutorial.md) — Deploy your first scraper in under 10 minutes
 - [Deployment Guide](./deployment.md) — Install and configure your server
 - [SDK Compatibility](./apify-sdk-environment.md) — Using the Apify SDK with Crawlee Cloud
 

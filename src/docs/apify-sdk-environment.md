@@ -60,10 +60,10 @@ npm start
 
 ```bash
 # Login to your server
-crawlee-cloud login --server https://your-server.com
+crc login --url https://your-server.com
 
 # Push your Actor
-crawlee-cloud push my-actor
+crc push my-actor
 ```
 
 ---
