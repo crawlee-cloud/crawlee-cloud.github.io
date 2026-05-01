@@ -95,23 +95,23 @@ The **Dashboard** at `http://localhost:3001` provides a web UI for monitoring Ac
 
 Create a `.env` file with your production settings:
 
-| Variable             | Description                        | Required                |
-| -------------------- | ---------------------------------- | ----------------------- |
-| `NODE_ENV`           | Set to `production` for production | Yes                     |
-| `PORT`               | API server port                    | No (default: 3000)      |
-| `DATABASE_URL`       | PostgreSQL connection string       | Yes                     |
-| `REDIS_URL`          | Redis connection string            | Yes                     |
-| `S3_ENDPOINT`        | S3-compatible endpoint URL         | Yes                     |
-| `S3_ACCESS_KEY`      | S3 access key                      | Yes                     |
-| `S3_SECRET_KEY`      | S3 secret key                      | Yes                     |
-| `S3_BUCKET`          | S3 bucket name                     | Yes                     |
-| `S3_REGION`          | S3 region                          | No (default: us-east-1) |
-| `S3_FORCE_PATH_STYLE`| Use path-style S3 URLs (for MinIO)| No (default: true)      |
-| `API_SECRET`         | JWT signing secret (min 32 chars)  | Yes                     |
-| `CORS_ORIGINS`       | Comma-separated allowed origins    | Yes                     |
-| `ADMIN_EMAIL`        | Initial admin user email           | Yes (for first setup)   |
-| `ADMIN_PASSWORD`     | Initial admin user password        | Yes (for first setup)   |
-| `LOG_LEVEL`          | Log verbosity                      | No (default: info)      |
+| Variable              | Description                        | Required                |
+| --------------------- | ---------------------------------- | ----------------------- |
+| `NODE_ENV`            | Set to `production` for production | Yes                     |
+| `PORT`                | API server port                    | No (default: 3000)      |
+| `DATABASE_URL`        | PostgreSQL connection string       | Yes                     |
+| `REDIS_URL`           | Redis connection string            | Yes                     |
+| `S3_ENDPOINT`         | S3-compatible endpoint URL         | Yes                     |
+| `S3_ACCESS_KEY`       | S3 access key                      | Yes                     |
+| `S3_SECRET_KEY`       | S3 secret key                      | Yes                     |
+| `S3_BUCKET`           | S3 bucket name                     | Yes                     |
+| `S3_REGION`           | S3 region                          | No (default: us-east-1) |
+| `S3_FORCE_PATH_STYLE` | Use path-style S3 URLs (for MinIO) | No (default: true)      |
+| `API_SECRET`          | JWT signing secret (min 32 chars)  | Yes                     |
+| `CORS_ORIGINS`        | Comma-separated allowed origins    | Yes                     |
+| `ADMIN_EMAIL`         | Initial admin user email           | Yes (for first setup)   |
+| `ADMIN_PASSWORD`      | Initial admin user password        | Yes (for first setup)   |
+| `LOG_LEVEL`           | Log verbosity                      | No (default: info)      |
 
 > **Note:** `ADMIN_EMAIL` and `ADMIN_PASSWORD` are required for the initial setup. Without them, no admin user is created and you will not be able to authenticate.
 

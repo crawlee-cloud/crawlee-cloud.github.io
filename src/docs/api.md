@@ -80,20 +80,20 @@ Store arbitrary data by key.
 
 Manage URLs to crawl with automatic deduplication.
 
-| Method   | Endpoint                                            | Description              |
-| -------- | --------------------------------------------------- | ------------------------ |
-| `GET`    | `/v2/request-queues`                                | List all queues          |
-| `POST`   | `/v2/request-queues`                                | Create a new queue       |
-| `GET`    | `/v2/request-queues/{id}`                           | Get queue details        |
-| `DELETE` | `/v2/request-queues/{id}`                           | Delete a queue           |
+| Method   | Endpoint                                            | Description               |
+| -------- | --------------------------------------------------- | ------------------------- |
+| `GET`    | `/v2/request-queues`                                | List all queues           |
+| `POST`   | `/v2/request-queues`                                | Create a new queue        |
+| `GET`    | `/v2/request-queues/{id}`                           | Get queue details         |
+| `DELETE` | `/v2/request-queues/{id}`                           | Delete a queue            |
 | `GET`    | `/v2/request-queues/{id}/head`                      | Get next pending requests |
-| `POST`   | `/v2/request-queues/{id}/head/lock`                 | Lock and fetch requests  |
-| `POST`   | `/v2/request-queues/{id}/requests`                  | Add request to queue     |
-| `POST`   | `/v2/request-queues/{id}/requests/batch`            | Batch add requests       |
-| `GET`    | `/v2/request-queues/{id}/requests/{requestId}`      | Get request details      |
-| `PUT`    | `/v2/request-queues/{id}/requests/{requestId}`      | Update request status    |
-| `PUT`    | `/v2/request-queues/{id}/requests/{requestId}/lock` | Prolong request lock     |
-| `DELETE` | `/v2/request-queues/{id}/requests/{requestId}/lock` | Release a lock           |
+| `POST`   | `/v2/request-queues/{id}/head/lock`                 | Lock and fetch requests   |
+| `POST`   | `/v2/request-queues/{id}/requests`                  | Add request to queue      |
+| `POST`   | `/v2/request-queues/{id}/requests/batch`            | Batch add requests        |
+| `GET`    | `/v2/request-queues/{id}/requests/{requestId}`      | Get request details       |
+| `PUT`    | `/v2/request-queues/{id}/requests/{requestId}`      | Update request status     |
+| `PUT`    | `/v2/request-queues/{id}/requests/{requestId}/lock` | Prolong request lock      |
+| `DELETE` | `/v2/request-queues/{id}/requests/{requestId}/lock` | Release a lock            |
 
 ### Deduplication
 
@@ -136,17 +136,17 @@ Actor create/update bodies are validated with the following constraints:
 
 Monitor Actor executions.
 
-| Method | Endpoint                                                  | Description                     |
-| ------ | --------------------------------------------------------- | ------------------------------- |
-| `GET`  | `/v2/actor-runs`                                          | List all runs                   |
-| `GET`  | `/v2/actor-runs/{id}`                                     | Get run status                  |
-| `PUT`  | `/v2/actor-runs/{id}`                                     | Update run status               |
-| `POST` | `/v2/actor-runs/{id}/abort`                               | Abort a running Actor           |
-| `POST` | `/v2/actor-runs/{id}/resurrect`                           | Resurrect a failed run          |
-| `GET`  | `/v2/actor-runs/{id}/logs`                                | Get run logs                    |
-| `POST` | `/v2/actor-runs/{id}/logs`                                | Append log entry                |
-| `GET`  | `/v2/actor-runs/{id}/dataset/items`                       | Get run's dataset items         |
-| `GET`  | `/v2/actor-runs/{id}/key-value-store/records/{key}`       | Get run's KV store record       |
+| Method | Endpoint                                            | Description               |
+| ------ | --------------------------------------------------- | ------------------------- |
+| `GET`  | `/v2/actor-runs`                                    | List all runs             |
+| `GET`  | `/v2/actor-runs/{id}`                               | Get run status            |
+| `PUT`  | `/v2/actor-runs/{id}`                               | Update run status         |
+| `POST` | `/v2/actor-runs/{id}/abort`                         | Abort a running Actor     |
+| `POST` | `/v2/actor-runs/{id}/resurrect`                     | Resurrect a failed run    |
+| `GET`  | `/v2/actor-runs/{id}/logs`                          | Get run logs              |
+| `POST` | `/v2/actor-runs/{id}/logs`                          | Append log entry          |
+| `GET`  | `/v2/actor-runs/{id}/dataset/items`                 | Get run's dataset items   |
+| `GET`  | `/v2/actor-runs/{id}/key-value-store/records/{key}` | Get run's KV store record |
 
 ### Run Status Values
 
@@ -184,9 +184,7 @@ Invalid request bodies return a 400 with Zod validation details:
   "error": {
     "type": "validation_error",
     "message": "Validation failed",
-    "details": [
-      { "path": ["name"], "message": "String must contain at least 1 character(s)" }
-    ]
+    "details": [{ "path": ["name"], "message": "String must contain at least 1 character(s)" }]
   }
 }
 ```
@@ -202,10 +200,10 @@ Invalid request bodies return a 400 with Zod validation details:
 }
 ```
 
-| HTTP Code | Description                    |
-| --------- | ------------------------------ |
-| `400`     | Bad request / validation error |
-| `401`     | Authentication required        |
-| `404`     | Resource not found             |
-| `409`     | Conflict (e.g., locked request)|
-| `500`     | Internal server error          |
+| HTTP Code | Description                     |
+| --------- | ------------------------------- |
+| `400`     | Bad request / validation error  |
+| `401`     | Authentication required         |
+| `404`     | Resource not found              |
+| `409`     | Conflict (e.g., locked request) |
+| `500`     | Internal server error           |

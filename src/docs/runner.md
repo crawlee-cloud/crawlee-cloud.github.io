@@ -15,18 +15,18 @@ The Runner executes Actors in isolated Docker containers.
 
 ## Configuration
 
-| Variable              | Description                   | Default                                             |
-| --------------------- | ----------------------------- | --------------------------------------------------- |
-| `API_BASE_URL`        | API server URL                | `http://localhost:3000`                              |
-| `API_TOKEN`           | Authentication token (auto-provisioned via Redis if not set) | Auto-provisioned                                     |
-| `DATABASE_URL`        | PostgreSQL connection string  | `postgresql://postgres:postgres@localhost:5432/crawlee_cloud` |
-| `REDIS_URL`           | Redis connection string       | `redis://localhost:6379`                             |
-| `DOCKER_SOCKET`       | Docker socket path            | `/var/run/docker.sock`                               |
-| `DOCKER_NETWORK`      | Docker network name           | `crawlee-cloud_default`                              |
-| `MAX_CONCURRENT_RUNS` | Max concurrent containers     | `10`                                                 |
-| `DEFAULT_MEMORY_MB`   | Default container memory (MB) | `1024`                                               |
-| `DEFAULT_TIMEOUT_SECS`| Default run timeout (seconds) | `3600`                                               |
-| `LOG_LEVEL`           | Log verbosity                 | `info`                                               |
+| Variable               | Description                                                  | Default                                                       |
+| ---------------------- | ------------------------------------------------------------ | ------------------------------------------------------------- |
+| `API_BASE_URL`         | API server URL                                               | `http://localhost:3000`                                       |
+| `API_TOKEN`            | Authentication token (auto-provisioned via Redis if not set) | Auto-provisioned                                              |
+| `DATABASE_URL`         | PostgreSQL connection string                                 | `postgresql://postgres:postgres@localhost:5432/crawlee_cloud` |
+| `REDIS_URL`            | Redis connection string                                      | `redis://localhost:6379`                                      |
+| `DOCKER_SOCKET`        | Docker socket path                                           | `/var/run/docker.sock`                                        |
+| `DOCKER_NETWORK`       | Docker network name                                          | `crawlee-cloud_default`                                       |
+| `MAX_CONCURRENT_RUNS`  | Max concurrent containers                                    | `10`                                                          |
+| `DEFAULT_MEMORY_MB`    | Default container memory (MB)                                | `1024`                                                        |
+| `DEFAULT_TIMEOUT_SECS` | Default run timeout (seconds)                                | `3600`                                                        |
+| `LOG_LEVEL`            | Log verbosity                                                | `info`                                                        |
 
 > **Note:** On startup, the API server creates a dedicated runner API key and stores it in Redis. The runner automatically fetches this key. You only need to set `API_TOKEN` manually if running the runner outside of the standard Docker Compose setup.
 

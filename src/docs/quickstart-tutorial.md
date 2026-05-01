@@ -118,12 +118,12 @@ import { CheerioCrawler } from 'crawlee';
 await Actor.init();
 
 const crawler = new CheerioCrawler({
-    maxRequestsPerCrawl: 5,
-    async requestHandler({ request, $ }) {
-        const title = $('title').text().trim();
-        console.log(`Scraped: ${request.url} → ${title}`);
-        await Actor.pushData({ url: request.url, title });
-    },
+  maxRequestsPerCrawl: 5,
+  async requestHandler({ request, $ }) {
+    const title = $('title').text().trim();
+    console.log(`Scraped: ${request.url} → ${title}`);
+    await Actor.pushData({ url: request.url, title });
+  },
 });
 
 await crawler.run(['https://crawlee.dev']);

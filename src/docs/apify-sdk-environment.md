@@ -70,10 +70,10 @@ crc push my-actor
 
 ## Choose Your Setup
 
-| Aspect  | Hosted (Apify) | Self-Hosted (Crawlee Cloud) |
-| ------- | -------------- | --------------------------- |
-| Hosting | Managed for you | Your own servers           |
-| Billing | Usage-based     | Your infrastructure        |
+| Aspect  | Hosted (Apify)  | Self-Hosted (Crawlee Cloud) |
+| ------- | --------------- | --------------------------- |
+| Hosting | Managed for you | Your own servers            |
+| Billing | Usage-based     | Your infrastructure         |
 | Data    | Cloud storage   | Self-managed storage        |
 | Scale   | Plan tiers      | Configure as needed         |
 | Source  | Commercial      | Open source                 |
