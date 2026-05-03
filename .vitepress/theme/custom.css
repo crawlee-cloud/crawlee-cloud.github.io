@@ -75,18 +75,6 @@
 /* ========================================
    Animations & Backgrounds
    ======================================== */
-@keyframes float {
-  0% {
-    transform: translateY(0px) rotate(0deg);
-  }
-  50% {
-    transform: translateY(-15px) rotate(2deg);
-  }
-  100% {
-    transform: translateY(0px) rotate(0deg);
-  }
-}
-
 @keyframes pulse-glow {
   0%,
   100% {
@@ -133,17 +121,14 @@
   pointer-events: none;
 }
 
-/* Floating Logo effect */
-.VPHomeHero .image-src {
-  animation: float 6s ease-in-out infinite;
-  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.2));
-}
-
 /* ========================================
    Hero Section Enhancements
    ======================================== */
 .VPHero {
-  padding-bottom: 80px !important;
+  padding-bottom: 24px !important;
+}
+.VPHero .text {
+  white-space: pre-line;
 }
 
 .VPHero .name {
@@ -175,6 +160,9 @@
     var(--cc-orange-start) 0%,
     var(--cc-red-end) 100%
   );
+  color: #fff !important;
+  font-weight: 700 !important;
+  text-shadow: 0 1px 2px rgba(120, 30, 0, 0.35);
   border: none;
   box-shadow: 0 4px 24px rgba(255, 178, 0, 0.3);
   transition: all 0.3s ease;
@@ -245,114 +233,6 @@
 /* ========================================
    Trusted By Strip
    ======================================== */
-.trusted-by-strip {
-  text-align: center;
-  padding: 40px 20px;
-  margin: 60px 0;
-  border-top: 1px solid var(--cc-border);
-  border-bottom: 1px solid var(--cc-border);
-  background: var(--vp-c-bg-soft);
-}
-
-.trusted-by-strip p {
-  font-size: 0.875rem;
-  font-weight: 600;
-  letter-spacing: 2px;
-  color: #6e7681;
-  text-transform: uppercase;
-  margin: 0 ;
-}
-
-/* ========================================
-   Refined Benefits Section
-   ======================================== */
-/* ========================================
-   Refined Benefits Section
-   ======================================== */
-.custom-section {
-  position: relative;
-  max-width: 1152px;
-  margin: 0 auto 100px ;
-  padding: 0 24px 60px;
-}
-
-.custom-section h2 {
-  font-size: 3rem;
-  font-weight: 800;
-  text-align: center;
-  line-height: 1;
-  margin-bottom: 60px;
-  background: linear-gradient(135deg, var(--cc-text-primary) 30%, var(--cc-text-secondary) 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  letter-spacing: -0.02em;
-  border: 0;
-}
-
-.logo{
-  width: auto;
-  height: 80% !important;
-}
-
-.benefits {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 30px;
-}
-
-.benefit {
-  background: var(--cc-bg-card);
-  border: 1px solid var(--cc-border);
-  border-radius: 24px;
-  padding: 40px;
-  text-align: center;
-  backdrop-filter: blur(12px);
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
-}
-
-.benefit:hover {
-  transform: translateY(-5px);
-  border-color: rgba(255, 178, 0, 0.3);
-  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.5);
-}
-
-.benefit::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    var(--cc-orange-start),
-    transparent
-  );
-  opacity: 0.5;
-}
-
-.benefit .number {
-  font-size: 4rem;
-  font-weight: 800;
-  line-height: 1;
-  margin-bottom: 16px;
-  background: linear-gradient(135deg, #ffb200 0%, #eb284b 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  display: block;
-}
-
-.benefit .label {
-  font-size: 1.25rem;
-  color: var(--cc-text-primary);
-  font-weight: 600;
-}
-
 /* ========================================
    Navigation Bar
    ======================================== */
@@ -435,14 +315,6 @@
   .VPHero .tagline {
     font-size: 1rem !important;
   }
-
-  .benefits {
-    gap: 40px;
-  }
-
-  .benefit .number {
-    font-size: 2.5rem;
-  }
 }
 
 /* ========================================
@@ -464,4 +336,357 @@
 
 ::-webkit-scrollbar-thumb:hover {
   background: var(--cc-orange-mid);
+}
+
+/* ========================================
+   Home — shared section primitives
+   ======================================== */
+.home-section {
+  padding: 64px 24px;
+  max-width: 1152px;
+  margin: 0 auto;
+}
+.home-section-inner {
+  max-width: 720px;
+  margin: 0 auto;
+}
+.home-section-center {
+  text-align: center;
+}
+.home-eyebrow {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 2.4px;
+  color: #f98618;
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+.home-final-cta-card > .home-eyebrow {
+  font-size: 14px;
+  letter-spacing: 2.6px;
+  margin-bottom: 16px;
+}
+.home-headline {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--cc-text-primary);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin: 0 0 12px;
+  border: 0;
+  padding: 0;
+  background: none;
+  -webkit-text-fill-color: initial;
+}
+.home-headline .home-grad,
+.home-final-cta-headline .home-grad {
+  background: linear-gradient(135deg, var(--cc-orange-start), var(--cc-red-end));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.home-sub {
+  font-size: 15px;
+  color: var(--cc-text-secondary);
+  line-height: 1.5;
+  margin: 0 auto 24px;
+  max-width: 620px;
+}
+
+/* ========================================
+   Home — drop-in compatible (env diff)
+   ======================================== */
+.home-diff .home-code-block {
+  margin-top: 20px;
+}
+.home-code-file {
+  font-size: 11px;
+  color: var(--cc-text-secondary);
+  margin-bottom: 8px;
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.home-code-untouched .home-code-file {
+  color: #56d364;
+}
+.home-code-untouched .home-code-file::before {
+  content: "✓";
+  background: rgba(86, 211, 100, 0.15);
+  color: #56d364;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+}
+.home-code-untouched div[class*="language-"] {
+  border-color: rgba(86, 211, 100, 0.25) !important;
+}
+
+/* ========================================
+   Home — dashboard browser frame
+   ======================================== */
+.home-browser-frame {
+  background: var(--vp-c-bg-soft);
+  border: 1px solid var(--cc-border);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.3);
+  margin-top: 28px;
+}
+.home-browser-bar {
+  background: var(--vp-c-bg-alt);
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-bottom: 1px solid var(--cc-border);
+}
+.home-browser-dot {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  display: inline-block;
+}
+.home-browser-dot-red { background: #ff5f56; }
+.home-browser-dot-yellow { background: #ffbd2e; }
+.home-browser-dot-green { background: #27c93f; }
+.home-browser-url {
+  flex: 1;
+  background: var(--vp-c-bg);
+  color: var(--cc-text-secondary);
+  font-size: 12px;
+  padding: 4px 12px;
+  border-radius: 6px;
+  margin-left: 12px;
+  text-align: center;
+  font-family: ui-monospace, monospace;
+}
+.home-browser-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ========================================
+   Home — why self-host cards
+   ======================================== */
+.home-why .home-section-inner { max-width: 1152px; }
+.home-why-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 28px;
+}
+.home-why-card {
+  background: var(--cc-bg-card);
+  border: 1px solid var(--cc-border);
+  border-radius: 12px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+.home-why-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255, 178, 0, 0.4);
+  box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.25);
+}
+.home-why-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, rgba(255, 178, 0, 0.15), rgba(235, 40, 75, 0.15));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--cc-orange-mid);
+}
+.home-why-icon svg { width: 22px; height: 22px; }
+.home-why-card h3 {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--cc-text-primary);
+  margin: 0;
+  border: 0;
+  padding: 0;
+  background: none;
+  -webkit-text-fill-color: initial;
+}
+.home-why-card p {
+  font-size: 14px;
+  color: var(--cc-text-secondary);
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* ========================================
+   Home — final CTA
+   ======================================== */
+.home-final-cta-card {
+  background: var(--vp-c-bg-soft);
+  border: 1px solid var(--cc-border);
+  border-radius: 16px;
+  padding: 56px 32px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.home-final-cta-card::before {
+  content: "";
+  position: absolute;
+  inset: -50%;
+  background:
+    radial-gradient(circle at 30% 50%, rgba(255, 178, 0, 0.12), transparent 35%),
+    radial-gradient(circle at 70% 50%, rgba(235, 40, 75, 0.12), transparent 35%);
+  pointer-events: none;
+}
+.home-final-cta-card > .home-eyebrow {
+  position: relative;
+  z-index: 1;
+}
+.home-final-cta-headline {
+  font-size: 36px;
+  font-weight: 800;
+  color: var(--cc-text-primary);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin: 0 0 12px;
+  border: 0;
+  padding: 0;
+  background: none;
+  -webkit-text-fill-color: initial;
+  position: relative;
+  z-index: 1;
+}
+.home-final-cta-sub {
+  font-size: 16px;
+  color: var(--cc-text-secondary);
+  line-height: 1.5;
+  max-width: 560px;
+  margin: 0 auto 28px;
+  position: relative;
+  z-index: 1;
+}
+.home-final-cta-buttons {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+  flex-wrap: wrap;
+}
+a.home-btn {
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  display: inline-block;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+a.home-btn-brand,
+a.home-btn-brand:hover,
+a.home-btn-brand:visited {
+  background: linear-gradient(135deg, var(--cc-orange-start), var(--cc-red-end));
+  color: #fff;
+  text-shadow: 0 1px 2px rgba(120, 30, 0, 0.35);
+  box-shadow: 0 8px 24px -8px rgba(255, 178, 0, 0.5);
+  text-decoration: none;
+}
+a.home-btn-brand:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px -8px rgba(255, 178, 0, 0.6);
+}
+a.home-btn-alt,
+a.home-btn-alt:hover,
+a.home-btn-alt:visited {
+  background: transparent;
+  color: var(--cc-text-primary);
+  border: 1px solid var(--cc-border);
+  text-decoration: none;
+}
+a.home-btn-alt:hover {
+  border-color: var(--cc-orange-start);
+}
+
+/* ========================================
+   Home — responsive
+   ======================================== */
+@media (max-width: 768px) {
+  .home-headline { font-size: 22px; }
+  .home-final-cta-headline { font-size: 26px; }
+  .home-why-grid { grid-template-columns: 1fr; }
+  .home-section { padding: 48px 20px; }
+}
+
+/* ========================================
+   Mobile nav screen — restore height clobbered by stuck transition state
+   ======================================== */
+.VPNavScreen {
+  height: calc(100vh - var(--vp-nav-height, 64px)) !important;
+  max-height: calc(100vh - var(--vp-nav-height, 64px)) !important;
+  overflow-y: auto !important;
+  background: #ffffff !important;
+  backdrop-filter: none !important;
+}
+.dark .VPNavScreen {
+  background: #0d1117 !important;
+}
+
+/* ========================================
+   Home — hero on mobile (override VitePress square image-container)
+   ======================================== */
+@media (max-width: 959px) {
+  .VPHero .image {
+    width: 100%;
+    max-width: 100% !important;
+    height: auto !important;
+    padding: 0 !important;
+    margin: 0 0 28px !important;
+    order: -1;
+  }
+  .VPHero .image-container {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    aspect-ratio: auto !important;
+    padding: 0 !important;
+    margin: 0 auto !important;
+    transform: none !important;
+    position: static !important;
+  }
+  .VPHero .image-bg {
+    display: none !important;
+  }
+  .VPHero .container {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .VPHero .main {
+    margin: 0 !important;
+    text-align: center;
+  }
+  .VPHero .actions {
+    justify-content: center;
+  }
+  .home-cast {
+    max-width: 480px;
+    margin: 0 auto;
+  }
+}
+
+/* ========================================
+   Home — reduced motion
+   ======================================== */
+@media (prefers-reduced-motion: reduce) {
+  .home-why-card { transition: none; }
+  .home-btn-brand,
+  .home-btn-brand:hover { transform: none; }
 }
