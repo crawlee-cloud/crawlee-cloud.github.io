@@ -3,106 +3,119 @@ layout: home
 
 hero:
   name: 'Crawlee Cloud'
-  text: 'Your Scrapers, Your Cloud'
-  tagline: 'Run Crawlee and Apify Actors on your own infrastructure. Open source, self-hosted, and built with love for developers.'
-  image:
-    light: /logo-light.svg
-    dark: /logo-dark.svg
-    alt: Crawlee Cloud
+  text: |
+    The same SDK.
+    Your own cloud.
+  tagline: "A self-hosted, open-source platform for Crawlee and Apify Actors. Keep your code. Choose your infrastructure."
   actions:
     - theme: brand
-      text: Get Started →
-      link: /docs/
+      text: Deploy in 5 minutes →
+      link: /docs/deployment
     - theme: alt
       text: View on GitHub
       link: https://github.com/crawlee-cloud/crawlee-cloud
-
-features:
-  - icon: <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-server"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg>
-    title: Self-Hosted & Open Source
-    details: Complete control over your infrastructure. Host on your own servers, keep your data private, and avoid vendor lock-in.
-    link: /docs/deployment
-    linkText: Deploy Now
-  - icon: <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-zap"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
-    title: SDK Compatible
-    details: Already using the Apify SDK? Great! Your existing code works here too. No rewrites needed, just point and run.
-    link: /docs/apify-sdk-environment
-    linkText: Learn More
-  - icon: <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-globe"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
-    title: Built for Crawlee
-    details: First-class support for Crawlee (Playwright, Cheerio, Puppeteer) scrapers. Optimized for high-performance crawling.
-    link: /docs/runner
-    linkText: Explore Runner
-  - icon: <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-bar-chart-2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
-    title: Powerful Dashboard
-    details: Manage runs, view logs, schedule tasks, and monitor performance from a beautiful, modern dashboard.
-    link: /docs/dashboard
-    linkText: View Dashboard
-  - icon: <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-terminal"><polyline points="4 17 10 11"></polyline><line x1="12" y1="19" x2="20" y2="19"></line></svg>
-    title: CLI & DevTools
-    details: Powerful command-line interface for managing actors, runs, and deployments. Streamline your workflow.
-    link: /docs/cli
-    linkText: CLI Guide
-  - icon: <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-cpu"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect><rect x="9" y="9" width="6" height="6"></rect><line x1="9" y1="1" x2="9" y2="4"></line><line x1="15" y1="1" x2="15" y2="4"></line><line x1="9" y1="20" x2="9" y2="23"></line><line x1="15" y1="20" x2="15" y2="23"></line><line x1="20" y1="9" x2="23" y2="9"></line><line x1="20" y1="14" x2="23" y2="14"></line><line x1="1" y1="9" x2="4" y2="9"></line><line x1="1" y1="14" x2="4" y2="14"></line></svg>
-    title: REST API
-    details: Full-featured REST API for programmatic control. Integrate with your existing systems and workflows.
-    link: /docs/api
-    linkText: API Reference
 ---
 
-<div class="trusted-by-strip">
-  <p>BUILT BY DEVELOPERS, FOR DEVELOPERS ✨</p>
+<section class="home-section home-diff">
+<div class="home-section-inner">
+<div class="home-eyebrow">Drop-in compatible</div>
+<h2 class="home-headline">Change one line. <span class="home-grad">Keep everything else.</span></h2>
+<p class="home-sub">Your existing Apify Actor — the one you already wrote, tested, and shipped — runs on Crawlee Cloud without a single line of application code changing. Point it at your own API and you're done.</p>
+
+<div class="home-code-block">
+<div class="home-code-file">.env</div>
+
+```diff
+- APIFY_API_BASE_URL=https://api.apify.com
++ APIFY_API_BASE_URL=https://crawlee.your-company.com
+```
+
 </div>
 
-<div class="producthunt-badge">
-  <a href="https://www.producthunt.com/products/crawlee-cloud?utm_source=badge-featured&utm_medium=badge&utm_campaign=badge-crawlee-cloud" target="_blank">
-    <img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1054817&theme=light" alt="Crawlee Cloud - Self-hosted platform for running web scrapers | Product Hunt" width="250" height="54" />
-  </a>
+<div class="home-code-block home-code-untouched">
+<div class="home-code-file">main.ts · untouched</div>
+
+```ts
+import { Actor } from 'apify';
+import { PlaywrightCrawler } from 'crawlee';
+
+await Actor.init();
+const crawler = new PlaywrightCrawler({ /* ... */ });
+await crawler.run(['https://example.com']);
+await Actor.exit();
+```
+
 </div>
 
-<div class="custom-section">
-  <h2>Why Crawlee Cloud?</h2>
-  <div class="benefits">
-    <div class="benefit">
-      <span class="number">100%</span>
-      <span class="label">Open Source</span>
-    </div>
-    <div class="benefit">
-      <span class="number">Zero</span>
-      <span class="label">Vendor Lock-in</span>
-    </div>
-    <div class="benefit">
-      <span class="number">Full</span>
-      <span class="label">Apify SDK Compatibility</span>
-    </div>
-  </div>
+</div>
+</section>
+
+<section class="home-section home-dashboard">
+<div class="home-section-inner home-section-center">
+<div class="home-eyebrow">Observe everything</div>
+<h2 class="home-headline">Runs, logs, datasets — <span class="home-grad">in one place.</span></h2>
+<p class="home-sub">Watch live runs, tail logs, browse datasets, replay failed runs. The same dashboard you'd expect from a hosted platform — except this one runs on your infrastructure.</p>
+
+<div class="home-browser-frame">
+<div class="home-browser-bar">
+<span class="home-browser-dot home-browser-dot-red"></span>
+<span class="home-browser-dot home-browser-dot-yellow"></span>
+<span class="home-browser-dot home-browser-dot-green"></span>
+<span class="home-browser-url">crawlee.your-company.com/console</span>
+</div>
+<picture>
+<source media="(prefers-color-scheme: dark)" srcset="/dashboard-runs-dark.png 1x, /dashboard-runs-dark@2x.png 2x">
+<img src="/dashboard-runs.png" srcset="/dashboard-runs.png 1x, /dashboard-runs@2x.png 2x" alt="Crawlee Cloud dashboard showing the runs list" class="home-browser-img" loading="lazy">
+</picture>
 </div>
 
-<style>
-:root {
-  --vp-home-hero-name-color: transparent;
-  --vp-home-hero-name-background: linear-gradient(135deg, #FFB200 0%, #F98618 50%, #EB284B 100%);
-  --vp-home-hero-image-background-image: radial-gradient(circle, rgba(255, 178, 0, 0.15) 0%, rgba(235, 40, 75, 0.1) 50%, transparent 70%);
-  --vp-home-hero-image-filter: blur(72px);
-}
+</div>
+</section>
 
-.dark {
-  --vp-home-hero-image-background-image: radial-gradient(circle, rgba(255, 178, 0, 0.12) 0%, rgba(235, 40, 75, 0.08) 50%, transparent 70%);
-}
+<section class="home-section home-why">
+<div class="home-section-inner">
+<div class="home-section-center">
+<div class="home-eyebrow">Why self-host</div>
+<h2 class="home-headline">Three reasons it <span class="home-grad">belongs on your infrastructure.</span></h2>
+</div>
 
-.producthunt-badge {
-  display: flex;
-  justify-content: center;
-  padding: 1.5rem 0;
-  margin-top: -1rem;
-}
+<div class="home-why-grid">
+<article class="home-why-card">
+<div class="home-why-icon" aria-hidden="true">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+</div>
+<h3>Sovereignty &amp; compliance</h3>
+<p>Your scraped data — and the credentials that produced it — never leave the infrastructure you control. Pick your region, your encryption, your audit trail. GDPR, HIPAA, SOC 2 stay your decision, not a vendor's roadmap.</p>
+</article>
 
-.producthunt-badge a {
-  transition: transform 0.2s ease, opacity 0.2s ease;
-}
+<article class="home-why-card">
+<div class="home-why-icon" aria-hidden="true">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M2 12h20"/></svg>
+</div>
+<h3>Costs you can predict</h3>
+<p>Pay for the compute you actually run, on the cloud you already pay for. No per-run pricing, no surprise bills when a backfill spikes traffic. Spin runners up and down with the same tools you use for the rest of your stack.</p>
+</article>
 
-.producthunt-badge a:hover {
-  transform: scale(1.05);
-  opacity: 0.9;
-}
-</style>
+<article class="home-why-card">
+<div class="home-why-icon" aria-hidden="true">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+</div>
+<h3>Open source, no lock-in</h3>
+<p>MIT licensed and forkable. Your scrapers use the standard Apify SDK, so they keep running anywhere that speaks the protocol — including Apify itself, if you ever change your mind. The platform is yours; the door is always open.</p>
+</article>
+</div>
+
+</div>
+</section>
+
+<section class="home-section home-final-cta">
+<div class="home-final-cta-card">
+<div class="home-eyebrow">Get started</div>
+<h2 class="home-final-cta-headline">Ready when you are. <span class="home-grad">Even on your laptop.</span></h2>
+<p class="home-final-cta-sub">Spin it up on your laptop in five minutes. Move it to staging when you trust it. Run it in production when you're ready.</p>
+<div class="home-final-cta-buttons">
+<a class="home-btn home-btn-brand" href="/docs/deployment">Deploy in 5 minutes →</a>
+<a class="home-btn home-btn-alt" href="https://github.com/crawlee-cloud/crawlee-cloud">View on GitHub</a>
+</div>
+</div>
+</section>
