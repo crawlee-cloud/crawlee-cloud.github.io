@@ -155,6 +155,10 @@ export default defineConfig({
       },
       { text: "Roadmap", link: "/docs/roadmap" },
       {
+        text: "Community",
+        link: "https://github.com/crawlee-cloud/crawlee-cloud/discussions",
+      },
+      {
         text: "GitHub",
         link: "https://github.com/crawlee-cloud/crawlee-cloud",
       },
@@ -197,7 +201,7 @@ export default defineConfig({
 
     footer: {
       message:
-        'Released under the MIT License. Infrastructure supported by <a href="https://m.do.co/c/ce0e27c04a52" target="_blank" rel="noopener">DigitalOcean</a>.',
+        'Released under the MIT License · <a href="https://github.com/crawlee-cloud/crawlee-cloud/discussions">Community</a> · <a href="https://opencollective.com/crawlee-cloud">Open Collective</a> · Infrastructure supported by <a href="https://www.digitalocean.com/?refcode=ce0e27c04a52&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=badge" rel="sponsored">DigitalOcean</a>',
       copyright: "Copyright © 2025 Crawlee Cloud",
     },
 
