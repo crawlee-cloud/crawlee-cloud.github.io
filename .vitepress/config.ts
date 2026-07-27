@@ -196,7 +196,8 @@ export default defineConfig({
     ],
 
     footer: {
-      message: "Released under the MIT License.",
+      message:
+        'Released under the MIT License. Infrastructure supported by <a href="https://m.do.co/c/ce0e27c04a52" target="_blank" rel="noopener">DigitalOcean</a>.',
       copyright: "Copyright © 2025 Crawlee Cloud",
     },
 
