@@ -117,5 +117,6 @@ await Actor.exit();
 <a class="home-btn home-btn-brand" href="/docs/deployment">Deploy in 5 minutes →</a>
 <a class="home-btn home-btn-alt" href="https://github.com/crawlee-cloud/crawlee-cloud">View on GitHub</a>
 </div>
+<p class="home-final-cta-help">🤝 <strong>Free 15-minute setup help</strong> — stuck deploying? <a href="https://calendly.com/aminembarki/15min" target="_blank" rel="noopener">Book a call</a> or <a href="mailto:aminembarki@gmail.com?subject=crawlee-cloud%20setup%20help">email me</a> and I'll personally help you get running, free, in exchange for your candid feedback.</p>
 </div>
 </section>
