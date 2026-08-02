@@ -614,6 +614,26 @@ a.home-btn-alt:visited {
 a.home-btn-alt:hover {
   border-color: var(--cc-orange-start);
 }
+.home-final-cta-help {
+  font-size: 14px;
+  color: var(--cc-text-secondary);
+  line-height: 1.6;
+  max-width: 560px;
+  margin: 28px auto 0;
+  padding-top: 20px;
+  border-top: 1px solid var(--cc-border);
+  position: relative;
+  z-index: 1;
+}
+.home-final-cta-help strong {
+  color: var(--cc-text-primary);
+}
+.home-final-cta-help a {
+  color: var(--cc-orange-start);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
 
 /* ========================================
    Home — responsive
