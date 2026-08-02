@@ -5,3 +5,5 @@ dist
 src/.vitepress/dist
 src/.vitepress/cache
 .superpowers/
+src/docs/roadmap.md
+*/docs/superpowers
