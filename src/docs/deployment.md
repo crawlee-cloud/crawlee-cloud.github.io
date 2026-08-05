@@ -2,10 +2,6 @@
 
 Deploy Crawlee Cloud to your own infrastructure.
 
-::: tip 🤝 Free 15-minute setup help
-Stuck deploying? [Book a call](https://calendly.com/aminembarki/15min) or [email me](mailto:aminembarki@gmail.com?subject=crawlee-cloud%20setup%20help) and I'll personally help you get running, free, in exchange for your candid feedback.
-:::
-
 ## Requirements
 
 - **Node.js** 20+
@@ -171,7 +167,7 @@ curl http://localhost:3000/health
 Returns:
 
 ```json
-{ "status": "ok", "version": "1.5.0" }
+{ "status": "ok", "version": "1.6.0" }
 ```
 
 The `version` field reflects the release you have installed.
