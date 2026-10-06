@@ -174,6 +174,7 @@ export default defineConfig({
             text: "Apify SDK Environment",
             link: "/docs/apify-sdk-environment",
           },
+          { text: "MCP (AI Agents)", link: "/docs/mcp" },
         ],
       },
       {
@@ -184,6 +185,10 @@ export default defineConfig({
           { text: "Runner", link: "/docs/runner" },
           { text: "Deployment", link: "/docs/deployment" },
           { text: "API Reference", link: "/docs/api" },
+          {
+            text: "Apify API Compatibility",
+            link: "/docs/apify-compatibility",
+          },
         ],
       },
       {

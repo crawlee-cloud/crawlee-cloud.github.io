@@ -83,6 +83,7 @@ crawlee-cloud run my-scraper --input '{"url": "https://example.com"}'
 
 ### Integration
 - Apify SDK Compatibility: https://crawlee.cloud/docs/apify-sdk-environment
+- MCP (AI Agents): https://crawlee.cloud/docs/mcp
 
 ## Keywords
 
